@@ -14,8 +14,8 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
   }
 
   const Icon = result ? CheckCircle : XCircle;
-  const message = result ? '正解！すごい！' : '残念！次は頑張ろう！';
-  const colorClass = result ? 'green' : 'red';
+  const message:string = result ? '正解！すごい！' : '残念！次は頑張ろう！';
+  const colorClass:string = result ? 'green' : 'red';
 
   return (
     <div className={`text-center p-4 rounded-lg bg-${colorClass}-100`}>
