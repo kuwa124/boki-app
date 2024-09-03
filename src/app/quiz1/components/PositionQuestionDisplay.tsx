@@ -17,8 +17,9 @@ export const PositionQuestionDisplay: React.FC<
         <p className='text-lg font-medium text-center'>
           {question.category}の
           <span className={`font-bold ${positionColor}`}>
-            {isPosition ? 'ホームポジションは？' : 'ホームポジションの反対は？'}
+            {isPosition ? '増加' : '減少'}
           </span>
+          は？
         </p>
       </div>
     </div>

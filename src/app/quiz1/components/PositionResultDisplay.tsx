@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { CheckCircle, XCircle } from 'lucide-react';
@@ -14,14 +16,16 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
   }
 
   const Icon = result ? CheckCircle : XCircle;
-  const message:string = result ? '正解！すごい！' : '残念！次は頑張ろう！';
-  const colorClass:string = result ? 'green' : 'red';
+  const message: string = result ? '正解！すごい！' : '残念！次は頑張ろう！';
+  const colorDivClass = result ? 'bg-green-100' : 'bg-red-100';
+  const colorIconClass = result ? 'text-green-500' : 'text-red-500';
+  const colorPClass = result ? 'text-green-700' : 'text-red-700';
 
   return (
-    <div className={`text-center p-4 rounded-lg bg-${colorClass}-100`}>
+    <div className={`text-center p-4 rounded-lg ${colorDivClass}`}>
       <div className='flex justify-center items-center'>
-        <Icon className={`text-${colorClass}-500 mr-2`} />
-        <p className={`text-${colorClass}-700 font-bold`}>{message}</p>
+        <Icon className={`${colorIconClass} mr-2`} />
+        <p className={`${colorPClass} font-bold`}>{message}</p>
       </div>
     </div>
   );
