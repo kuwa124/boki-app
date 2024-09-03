@@ -81,7 +81,7 @@ export default function Quiz1() {
 
   return (
     <main className='text-gray-600 min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center'>
-      <div className='bg-white p-8 rounded-xl shadow-2xl max-w-md w-full'>
+      <div className='bg-white p-8 rounded-xl shadow-2xl max-w-md w-full mb-40'>
         <h1 className='text-3xl font-bold text-center mb-6 text-purple-600'>
           5要素のポジション問題！
         </h1>
@@ -92,9 +92,6 @@ export default function Quiz1() {
           isAnswered={answer !== undefined}
         />
         <PositionResultDisplay result={result} />
-        <div className='absolute top-20 right-4'>
-          <Sparkles className='text-yellow-400 animate-pulse' size={32} />
-        </div>
       </div>
     </main>
   );
