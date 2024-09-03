@@ -1,35 +1,34 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Sparkles } from 'lucide-react';
+import { PositionQuestionDisplay } from '@/app/quiz1/components/PositionQuestionDisplay';
+import { PositionResultDisplay } from '@/app/quiz1/components/PositionResultDisplay';
 import {
   AccountingCategory,
   AccountingCategoryQuestion,
   categoryPositions,
-} from './constants/AccountingCategoryTypes';
-import { ScoreDisplay } from '@/components/ScoreDisplay';
-import { PositionQuestionDisplay } from './components/PositionQuestionDisplay';
+} from '@/app/quiz1/constants/AccountingCategoryTypes';
 import { AnswerButtons } from '@/components/AnswerButtons';
-import { PositionResultDisplay } from './components/PositionResultDisplay';
+import { ScoreDisplay } from '@/components/ScoreDisplay';
 import { Position } from '@/constants/type';
+import { useEffect, useState } from 'react';
+
+const generateQuestion = (): AccountingCategoryQuestion => {
+  const categories: AccountingCategory[] = [
+    '資産',
+    '負債',
+    '純資産',
+    '費用',
+    '収益',
+  ];
+  const category = categories[Math.floor(Math.random() * categories.length)];
+  const position = Math.random() < 0.5 ? 'home' : 'away';
+  return { category, position };
+};
 
 export default function Quiz1() {
-  const generateQuestion = (): AccountingCategoryQuestion => {
-    const categories: AccountingCategory[] = [
-      '資産',
-      '負債',
-      '純資産',
-      '費用',
-      '収益',
-    ];
-    const category = categories[Math.floor(Math.random() * categories.length)];
-    const position = Math.random() < 0.5 ? 'home' : 'away';
-    return { category, position };
-  };
-
   // 問題の状態を管理
-  const [question, setQuestion] = useState<AccountingCategoryQuestion>(
-    generateQuestion()
+  const [question, setQuestion] = useState<AccountingCategoryQuestion | null>(
+    null
   );
   // 回答の状態を管理
   const [answer, setAnswer] = useState<Position | undefined>(undefined);
@@ -40,8 +39,14 @@ export default function Quiz1() {
   // 総問題数の状態を管理
   const [totalQuestions, setTotalQuestions] = useState(0);
 
+  // コンポーネントがマウントされたときに問題を生成
+  useEffect(() => {
+    setQuestion(generateQuestion());
+  }, []);
+
   // 回答をチェックする関数
   const checkAnswer = (selectedPosition: Position) => {
+    if (!question) return; // 問題がない場合は処理を行わない(早期リターン)
     // position を 'home' | 'away' に変換
     const positionKey = question.position === 'home' ? 'home' : 'away';
 
@@ -78,6 +83,11 @@ export default function Quiz1() {
     }, 2000);
     return () => clearTimeout(timer);
   }, [result]);
+
+  // 問題がロードされていない場合のローディング表示
+  if (question === null) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <main className='text-gray-600 min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center'>
