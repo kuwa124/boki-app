@@ -91,8 +91,8 @@ export default function Quiz1() {
 
   return (
     <main className='text-gray-600 min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center'>
-      <div className='bg-white p-8 rounded-xl shadow-2xl max-w-md w-full mb-40'>
-        <h1 className='text-3xl font-bold text-center mb-6 text-purple-600'>
+      <div className='bg-white p-8 m-4 rounded-xl shadow-2xl max-w-md w-full mb-40'>
+        <h1 className='sm:text-3xl text-2xl font-bold text-center mb-6 text-purple-600'>
           5要素のポジション問題！
         </h1>
         <ScoreDisplay score={score} totalQuestions={totalQuestions} />
