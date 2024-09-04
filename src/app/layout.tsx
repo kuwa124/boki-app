@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
-
+const notoSansJP = Noto_Sans_JP({ subsets: ['latin'], weight: ['400'] });
 export const metadata: Metadata = {
   title: '簿記ドリル',
   description: '簿記の勘定科目を学習しよう！',
@@ -16,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ja'>
-      <body className={inter.className}>
+      <body className={notoSansJP.className}>
         {/* <Navigation /> */}
         {children}
       </body>
