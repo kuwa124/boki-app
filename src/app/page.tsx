@@ -6,6 +6,7 @@ type page_list = {
 };
 const PAGE_LIST: page_list[] = [
   { id: 1, pageTitle: '5要素のポジション問題！' },
+  { id: 2, pageTitle: '損益計算書の分類問題！' },
 ];
 
 export default function Home() {
