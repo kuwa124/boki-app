@@ -1,15 +1,31 @@
 'use client';
 
-import { PositionQuestionDisplay } from '@/app/quiz1/components/PositionQuestionDisplay';
-import { PositionResultDisplay } from '@/app/quiz1/components/PositionResultDisplay';
-import { AnswerButtons } from '@/components/AnswerButtons';
+import { AnswerButtons2 } from '@/app/quiz2/components/AnswerButtons2';
+import { ProfitLossQuestionDisplay } from '@/app/quiz2/components/ProfitLossQuestionDisplay';
+import { BaseElements } from '@/app/quiz2/constants/baseElements';
 import Navigation from '@/components/Navigation';
+import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
-import { useQuiz } from '@/hooks/useQuiz';
+import { useQuiz2 } from '@/hooks/useQuiz2';
 
 export default function Quiz2() {
   const { question, answer, result, score, totalQuestions, checkAnswer } =
-    useQuiz();
+    useQuiz2();
+
+  // 回答ボタンがクリックされたときの処理
+  const handleAnswer = (position: string) => {
+    // questionが存在する場合のみ処理を実行
+    if (question) {
+      // 選択された位置（費用または収益）に基づいて、BaseElements型のオブジェクトを作成
+      const selectedPosition: BaseElements = {
+        id: question.id,
+        text: question.text,
+        answer: position,
+      };
+      // checkAnswer関数を呼び出して回答をチェック
+      checkAnswer(selectedPosition);
+    }
+  };
 
   // 問題がロードされていない場合のローディング表示
   if (question === null) {
@@ -25,9 +41,9 @@ export default function Quiz2() {
             損益計算書の分類問題！
           </h1>
           <ScoreDisplay score={score} totalQuestions={totalQuestions} />
-          <PositionQuestionDisplay question={question} />
-          <AnswerButtons
-            onAnswer={checkAnswer}
+          <ProfitLossQuestionDisplay question={question} />
+          <AnswerButtons2
+            onAnswer={handleAnswer}
             isAnswered={answer !== undefined}
           />
           <PositionResultDisplay result={result} />

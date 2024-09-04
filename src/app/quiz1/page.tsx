@@ -1,11 +1,11 @@
 'use client';
 
+import { AnswerButtons } from '@/app/quiz1/components/AnswerButtons1';
 import { PositionQuestionDisplay } from '@/app/quiz1/components/PositionQuestionDisplay';
-import { PositionResultDisplay } from '@/app/quiz1/components/PositionResultDisplay';
-import { AnswerButtons } from '@/components/AnswerButtons';
 import Navigation from '@/components/Navigation';
+import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
-import { useQuiz } from '@/hooks/useQuiz';
+import { useQuiz } from '@/hooks/useQuiz1';
 
 export default function Quiz1() {
   const { question, answer, result, score, totalQuestions, checkAnswer } =

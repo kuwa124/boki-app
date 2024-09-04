@@ -1,4 +1,4 @@
-type BaseElements = {
+export type BaseElements = {
   id: number;
   text: string;
   answer: string;
@@ -28,7 +28,7 @@ export const baseElements1: BaseElements[] = [
   { id: 20, text: '固定資産売却損', answer: '費用' },
 ];
 
-export const generateQuestion2 = (baseElements1: BaseElements[]) => {
+export const generateQuestion2 = (baseElements1: BaseElements[]):BaseElements => {
   const category =
     baseElements1[Math.floor(Math.random() * baseElements1.length)];
   return category;
