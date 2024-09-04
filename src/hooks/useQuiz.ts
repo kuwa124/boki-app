@@ -1,8 +1,9 @@
 import {
   AccountingCategoryQuestion,
   categoryPositions,
+  generateQuestion,
 } from '@/app/quiz1/constants/AccountingCategoryTypes';
-import { generateQuestion, Position } from '@/constants/type';
+import { Position } from '@/constants/type';
 import { useEffect, useState } from 'react';
 
 // UseQuiz型を関数型として定義

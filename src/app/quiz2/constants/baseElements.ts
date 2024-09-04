@@ -5,7 +5,7 @@ type BaseElements = {
 };
 
 // ベースとなる要素の配列を定義する
-export const baseElements: BaseElements[] = [
+export const baseElements1: BaseElements[] = [
   { id: 1, text: '仕入', answer: '費用' },
   { id: 2, text: '給料', answer: '費用' },
   { id: 3, text: '法定福利費', answer: '費用' },
@@ -27,3 +27,9 @@ export const baseElements: BaseElements[] = [
   { id: 19, text: '雑損', answer: '費用' },
   { id: 20, text: '固定資産売却損', answer: '費用' },
 ];
+
+export const generateQuestion2 = (baseElements1: BaseElements[]) => {
+  const category =
+    baseElements1[Math.floor(Math.random() * baseElements1.length)];
+  return category;
+};
