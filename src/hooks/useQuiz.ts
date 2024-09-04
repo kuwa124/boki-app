@@ -5,7 +5,8 @@ import {
 import { generateQuestion, Position } from '@/constants/type';
 import { useEffect, useState } from 'react';
 
-type UseQuiz = {
+// UseQuiz型を関数型として定義
+type UseQuiz = () => {
   question: AccountingCategoryQuestion | null; // 現在の問題
   answer: Position | undefined; // ユーザーの回答
   result: boolean | undefined; // 回答結果
@@ -15,6 +16,7 @@ type UseQuiz = {
   nextQuestion: () => void; // 次の問題を生成する関数
 };
 
+// useQuizをUseQuiz型の関数として実装
 export const useQuiz: UseQuiz = () => {
   // 問題の状態を管理
   const [question, setQuestion] = useState<AccountingCategoryQuestion | null>(
