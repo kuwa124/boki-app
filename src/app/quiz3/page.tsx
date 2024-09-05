@@ -50,8 +50,8 @@ export default function Quiz3() {
           <PositionResultDisplay result={result} />
         </div>
       </div>
-      <div className='flex justify-center items-center space-y-2 max-w-full mx-10 sm:mx-auto text-white text-xs sm:text-lg'>
-        <div className='flex flex-col'>
+      <div className='flex justify-center items-center max-w-full mx-10 sm:mx-auto text-white text-xs sm:text-lg'>
+        <div className='flex flex-col space-y-2'>
           <div className='container mx-auto'>
             <p className='mb-1 sm:mb-0 '>
               資産：増えたら嬉しいもの、お金そのもの、後にお金になるもの、売ればお金になるもの
