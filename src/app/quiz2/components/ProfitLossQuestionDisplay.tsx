@@ -1,8 +1,8 @@
-import { BaseElements } from '@/app/quiz2/constants/baseElements';
+import { PlElements } from '@/app/quiz2/constants/plElements';
 import React from 'react';
 
 type ProfitLossQuestionDisplayProps = {
-  question: BaseElements;
+  question: PlElements;
 };
 
 export const ProfitLossQuestionDisplay: React.FC<

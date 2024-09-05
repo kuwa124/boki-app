@@ -1,27 +1,22 @@
-import {
-  PlElements,
-  plElements,
-  generateQuestion2,
-} from '@/app/quiz2/constants/plElements';
 import { useEffect, useState } from 'react';
 
 // UseQuiz型を関数型として定義
 type UseQuiz = () => {
-  question: PlElements | null; // 現在の問題
-  answer: PlElements | undefined; // ユーザーの回答
+  question: BaseElements | null; // 現在の問題
+  answer: BaseElements | undefined; // ユーザーの回答
   result: boolean | undefined; // 回答結果
   score: number; // 現在のスコア
   totalQuestions: number; // 総問題数
-  checkAnswer: (selectedPosition: PlElements) => void; // 回答をチェックする関数
+  checkAnswer: (selectedPosition: BaseElements) => void; // 回答をチェックする関数
   nextQuestion: () => void; // 次の問題を生成する関数
 };
 
 // useQuizをUseQuiz型の関数として実装
 export const useQuiz2: UseQuiz = () => {
   // 問題の状態を管理
-  const [question, setQuestion] = useState<PlElements | null>(null);
+  const [question, setQuestion] = useState<BaseElements | null>(null);
   // 回答の状態を管理
-  const [answer, setAnswer] = useState<PlElements | undefined>(undefined);
+  const [answer, setAnswer] = useState<BaseElements | undefined>(undefined);
   // 結果の状態を管理
   const [result, setResult] = useState<boolean | undefined>(undefined);
   // スコアの状態を管理
@@ -31,11 +26,11 @@ export const useQuiz2: UseQuiz = () => {
 
   // コンポーネントがマウントされたときに問題を生成
   useEffect(() => {
-    setQuestion(generateQuestion2(plElements));
+    setQuestion(generateQuestion2(baseElements1));
   }, []);
 
   // 回答をチェックする関数
-  const checkAnswer = (selectedPosition: PlElements) => {
+  const checkAnswer = (selectedPosition: BaseElements) => {
     if (!question) return; // 問題がない場合は処理を行わない(早期リターン)
 
     // 正解を取得
@@ -55,7 +50,7 @@ export const useQuiz2: UseQuiz = () => {
   // 次の問題を生成する関数
   const nextQuestion = () => {
     // 新しい問題を生成
-    setQuestion(generateQuestion2(plElements));
+    setQuestion(generateQuestion2(baseElements1));
     // 回答をリセット
     setAnswer(undefined);
     // 結果をリセット

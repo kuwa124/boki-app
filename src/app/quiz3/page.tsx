@@ -2,23 +2,22 @@
 
 import { AnswerButtons2 } from '@/app/quiz2/components/AnswerButtons2';
 import { ProfitLossQuestionDisplay } from '@/app/quiz2/components/ProfitLossQuestionDisplay';
-import { PlElements } from '@/app/quiz2/constants/plElements';
+import { BaseElements } from '@/app/quiz2/constants/baseElements';
 import { Loading } from '@/components/Loading';
 import Navigation from '@/components/Navigation';
 import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
-import { useQuiz2 } from '@/hooks/useQuiz2';
 
-export default function Quiz2() {
+export default function Quiz3() {
   const { question, answer, result, score, totalQuestions, checkAnswer } =
-    useQuiz2();
+    useQuiz3();
 
   // 回答ボタンがクリックされたときの処理
   const handleAnswer = (position: string) => {
     // questionが存在する場合のみ処理を実行
     if (question) {
-      // 選択された位置（費用または収益）に基づいて、PlElements型のオブジェクトを作成
-      const selectedPosition: PlElements = {
+      // 選択された位置（費用または収益）に基づいて、BaseElements型のオブジェクトを作成
+      const selectedPosition: BaseElements = {
         id: question.id,
         text: question.text,
         answer: position,

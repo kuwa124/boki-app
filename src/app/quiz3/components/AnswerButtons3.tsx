@@ -5,9 +5,9 @@ type AnswerButtonsProps = {
   isAnswered: boolean;
 };
 
-const positions: string[] = ['費用', '収益'];
+const positions: string[] = ['資産', '負債', '純資産'];
 
-export const AnswerButtons2: React.FC<AnswerButtonsProps> = ({
+export const AnswerButtons3: React.FC<AnswerButtonsProps> = ({
   onAnswer,
   isAnswered,
 }) => {
@@ -19,7 +19,7 @@ export const AnswerButtons2: React.FC<AnswerButtonsProps> = ({
           onClick={() => onAnswer(pos)}
           disabled={isAnswered}
           className={`py-3 px-6 rounded-full text-white font-bold text-lg transition-transform transform hover:scale-105 ${
-            pos === '費用'
+            pos === '資産'
               ? 'bg-orange-500 hover:bg-orange-600'
               : 'bg-blue-500 hover:bg-blue-600'
           }`}

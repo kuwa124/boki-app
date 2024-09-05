@@ -1,11 +1,11 @@
-export type BaseElements = {
+export type PlElements = {
   id: number;
   text: string;
   answer: string;
 };
 
 // ベースとなる要素の配列を定義する
-export const baseElements1: BaseElements[] = [
+export const plElements: PlElements[] = [
   { id: 1, text: '仕入', answer: '費用' },
   { id: 2, text: '給料', answer: '費用' },
   { id: 3, text: '法定福利費', answer: '費用' },
@@ -28,8 +28,8 @@ export const baseElements1: BaseElements[] = [
   { id: 20, text: '固定資産売却損', answer: '費用' },
 ];
 
-export const generateQuestion2 = (baseElements1: BaseElements[]):BaseElements => {
+export const generateQuestion2 = (plElements: PlElements[]):PlElements => {
   const category =
-    baseElements1[Math.floor(Math.random() * baseElements1.length)];
+    plElements[Math.floor(Math.random() * plElements.length)];
   return category;
 };
