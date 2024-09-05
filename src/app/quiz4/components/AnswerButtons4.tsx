@@ -1,7 +1,6 @@
 import { combinedPositions } from '@/constants/type';
 import React from 'react';
 
-
 type AnswerButtonsProps = {
   onAnswer: (position: string) => void;
   isAnswered: boolean;
@@ -12,7 +11,7 @@ export const AnswerButtons4: React.FC<AnswerButtonsProps> = ({
   isAnswered,
 }) => {
   return (
-    <div className='grid sm:grid-cols-3 gap-4 mb-2 sm:mb-4'>
+    <div className='grid sm:grid-cols-5 gap-4 mb-2 sm:mb-4'>
       {combinedPositions.map((pos) => (
         <button
           key={pos.name}

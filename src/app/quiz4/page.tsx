@@ -37,7 +37,7 @@ export default function Quiz4() {
     <main className='text-gray-600 min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>
       <Navigation />
       <div className='flex items-center justify-center'>
-        <div className='bg-white p-2 sm:p-8 m-4 rounded-xl shadow-2xl max-w-md w-full mt-4 sm:mt-30'>
+        <div className='container sm:mx-auto bg-white p-2 sm:p-8 m-4 rounded-xl shadow-2xl mt-4 sm:mt-30'>
           <h1 className='sm:text-3xl text-2xl font-bold text-center mb-6 text-purple-600'>
             総 合 問 題！
           </h1>
