@@ -2,6 +2,7 @@
 
 import { AnswerButtons } from '@/app/quiz1/components/AnswerButtons1';
 import { PositionQuestionDisplay } from '@/app/quiz1/components/PositionQuestionDisplay';
+import { Loading } from '@/components/Loading';
 import Navigation from '@/components/Navigation';
 import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
@@ -13,7 +14,7 @@ export default function Quiz1() {
 
   // 問題がロードされていない場合のローディング表示
   if (question === null) {
-    return <div className='flex justify-center items-center'>Loading...</div>;
+    return <Loading />;
   }
 
   return (
