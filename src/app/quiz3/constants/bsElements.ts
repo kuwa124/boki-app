@@ -1,4 +1,4 @@
-import { Elements } from "@/constants/type";
+import { Elements } from '@/constants/type';
 
 // ベースとなる要素の配列を定義する
 export const bsElements: Elements[] = [
@@ -34,8 +34,7 @@ export const bsElements: Elements[] = [
   { id: 30, text: '利益準備金', answer: '純資産' },
 ];
 
-export const generateQuestion3 = (bsElements: Elements[]):Elements => {
-  const category =
-    bsElements[Math.floor(Math.random() * bsElements.length)];
+export const generateQuestion3 = (bsElements: Elements[]): Elements => {
+  const category = bsElements[Math.floor(Math.random() * bsElements.length)];
   return category;
 };

@@ -7,3 +7,21 @@ export type Elements = {
   text: string;
   answer: string;
 };
+
+export const positions: string[] = ['費用', '収益'];
+
+type BsPositions = {
+  name: string;
+  style: string;
+};
+
+export const bsPositions: BsPositions[] = [
+  { name: '資産', style: 'bg-orange-500 hover:bg-orange-600' },
+  { name: '負債', style: 'bg-blue-500 hover:bg-blue-600' },
+  { name: '純資産', style: 'bg-green-500 hover:bg-green-600' },
+];
+
+export const combinedPositions: BsPositions[] = [
+  ...bsPositions.map((pos) => ({ ...pos })),
+  ...positions.map((pos) => ({ name: pos, style: '' })),
+];
