@@ -1,13 +1,13 @@
-import { PlElements } from '@/app/quiz2/constants/plElements';
+import { Elements } from '@/constants/type';
 import React from 'react';
 
-type ProfitLossQuestionDisplayProps = {
-  question: PlElements;
+type AccountItemQuestionDisplayProps = {
+  question: Elements;
 };
 
-export const ProfitLossQuestionDisplay: React.FC<
-  ProfitLossQuestionDisplayProps
-> = ({ question }) => {
+export const AccountItemQuestionDisplay: React.FC<AccountItemQuestionDisplayProps> = ({
+  question,
+}) => {
   return (
     <div>
       {/* 問題部分 */}

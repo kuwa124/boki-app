@@ -1,12 +1,12 @@
 'use client';
 
 import { AnswerButtons2 } from '@/app/quiz2/components/AnswerButtons2';
-import { ProfitLossQuestionDisplay } from '@/app/quiz2/components/ProfitLossQuestionDisplay';
-import { PlElements } from '@/app/quiz2/constants/plElements';
+import { AccountItemQuestionDisplay } from '@/components/AccountItemQuestionDisplay';
 import { Loading } from '@/components/Loading';
 import Navigation from '@/components/Navigation';
 import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
+import { Elements } from '@/constants/type';
 import { useQuiz2 } from '@/hooks/useQuiz2';
 
 export default function Quiz2() {
@@ -18,7 +18,7 @@ export default function Quiz2() {
     // questionが存在する場合のみ処理を実行
     if (question) {
       // 選択された位置（費用または収益）に基づいて、PlElements型のオブジェクトを作成
-      const selectedPosition: PlElements = {
+      const selectedPosition: Elements = {
         id: question.id,
         text: question.text,
         answer: position,
@@ -42,7 +42,7 @@ export default function Quiz2() {
             損益計算書の分類問題！
           </h1>
           <ScoreDisplay score={score} totalQuestions={totalQuestions} />
-          <ProfitLossQuestionDisplay question={question} />
+          <AccountItemQuestionDisplay question={question} />
           <AnswerButtons2
             onAnswer={handleAnswer}
             isAnswered={answer !== undefined}
@@ -50,6 +50,7 @@ export default function Quiz2() {
           <PositionResultDisplay result={result} />
         </div>
       </div>
+
       <div className='items-center space-y-2 max-w-2xl ml-10 sm:mx-auto text-white text-xs sm:text-lg'>
         <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center w-full'>
           <p className='w-full sm:w-1/2'>収益：「受取○○」「○○益」</p>
