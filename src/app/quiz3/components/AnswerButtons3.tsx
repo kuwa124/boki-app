@@ -5,7 +5,10 @@ type AnswerButtonsProps = {
   isAnswered: boolean;
 };
 
-const positions: string[] = ['資産', '負債', '純資産'];
+// const BsPositions: string[] = ['資産', '負債', '純資産'];
+
+const BsPositions: string[] = [];
+
 
 export const AnswerButtons3: React.FC<AnswerButtonsProps> = ({
   onAnswer,
@@ -13,7 +16,7 @@ export const AnswerButtons3: React.FC<AnswerButtonsProps> = ({
 }) => {
   return (
     <div className='grid grid-cols-2 gap-4 mb-6'>
-      {positions.map((pos) => (
+      {BsPositions.map((pos) => (
         <button
           key={pos}
           onClick={() => onAnswer(pos)}
