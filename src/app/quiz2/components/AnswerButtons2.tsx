@@ -1,3 +1,4 @@
+import { positions } from '@/constants/type';
 import React from 'react';
 
 type AnswerButtonsProps = {
@@ -5,7 +6,6 @@ type AnswerButtonsProps = {
   isAnswered: boolean;
 };
 
-const positions: string[] = ['費用', '収益'];
 
 export const AnswerButtons2: React.FC<AnswerButtonsProps> = ({
   onAnswer,

@@ -8,6 +8,7 @@ const PAGE_LIST: page_list[] = [
   { id: 1, pageTitle: '5要素のポジション問題！' },
   { id: 2, pageTitle: '損益計算書の分類問題！' },
   { id: 3, pageTitle: '貸借対照表の分類問題！' },
+  { id: 4, pageTitle: '総 合 問 題！' },
 ];
 
 export default function Home() {
