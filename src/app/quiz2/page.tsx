@@ -36,7 +36,7 @@ export default function Quiz2() {
     <main className='text-gray-600 min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>
       <Navigation />
       <div className='flex items-center justify-center'>
-        <div className='bg-white p-8 m-4 rounded-xl shadow-2xl max-w-md w-full mt-20 sm:mt-40'>
+        <div className='bg-white p-8 m-4 rounded-xl shadow-2xl max-w-md w-full mt-20 sm:mt-30'>
           <h1 className='sm:text-3xl text-2xl font-bold text-center mb-6 text-purple-600'>
             損益計算書の分類問題！
           </h1>
@@ -48,6 +48,14 @@ export default function Quiz2() {
           />
           <PositionResultDisplay result={result} />
         </div>
+      </div>
+      <div className='flex flex-col items-center space-y-2 text-white text-lg '>
+        <p>
+          収益：「受取○○」「○○益」　　　例外）受取手形(資産)、受取商品券(資産)
+        </p>
+        <p>
+          費用：「支払○○」「○○費」「○○料」「○○損」　　 　　例外)損益(その他)
+        </p>
       </div>
     </main>
   );
