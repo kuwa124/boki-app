@@ -9,7 +9,7 @@ const PAGE_LIST: page_list[] = [
   { id: 2, pageTitle: '損益計算書の分類問題！' },
   { id: 3, pageTitle: '貸借対照表の分類問題！' },
   { id: 4, pageTitle: '総 合 問 題！' },
-  { id: 5, pageTitle: '勘定科目問題！' },
+  { id: 5, pageTitle: '勘定科目の増減問題！' },
 ];
 
 export default function Home() {
