@@ -1,3 +1,4 @@
+import { AccountingCategory, categoryPositions } from '@/app/quiz1/constants/AccountingCategoryTypes';
 import { combinedElements } from '@/app/quiz4/constants/combinedElements';
 import {
   generateQuestion5,
@@ -5,6 +6,7 @@ import {
 } from '@/app/quiz5/constants/AccountItemTypes';
 import { combinedPositions, Position } from '@/constants/type';
 import { useEffect, useState } from 'react';
+
 
 // UseQuiz型を関数型として定義
 type UseQuiz = () => {
@@ -39,13 +41,15 @@ export const useQuiz5: UseQuiz = () => {
   const checkAnswer = (selectedPosition: Position) => {
     if (!question) return; // 問題がない場合は処理を行わない(早期リターン)
 
-    // ポジションを取得
-    const positionKey = question.position === 'home' ? 'home' : 'away';
+    // question.category.answerから勘定科目の種類を取得
+    const categoryType = question.category.answer as AccountingCategory;
 
-    // 正解を取得
-    const correctAnswer = combinedElements[question.category][positionKey];
-    // 選択された回答が正解かどうかを判定
-    const isCorrect = selectedPosition === correctAnswer;
+    // categoryPositionsから正解の位置を取得（型アサーションを使用）
+    const correctPosition =
+      categoryPositions[categoryType][question.position as 'home' | 'away'];
+
+    // 選択された回答が正解かどうかを判定    // 選択された回答が正解かどうかを判定
+    const isCorrect = selectedPosition === correctPosition;
     // 回答を設定
     setAnswer(selectedPosition);
     // 結果を設定

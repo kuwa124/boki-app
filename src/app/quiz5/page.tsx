@@ -1,32 +1,15 @@
 'use client';
 
-import { AnswerButtons4 } from '@/app/quiz4/components/AnswerButtons4';
-import { AccountItemQuestionDisplay } from '@/components/AccountItemQuestionDisplay';
+import { AnswerButtons } from '@/app/quiz1/components/AnswerButtons1';
 import { Loading } from '@/components/Loading';
 import Navigation from '@/components/Navigation';
 import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
-import { Elements } from '@/constants/type';
-import { useQuiz4 } from '@/hooks/useQuiz4';
+import { useQuiz5 } from '@/hooks/useQuiz5';
 
 export default function Quiz5() {
   const { question, answer, result, score, totalQuestions, checkAnswer } =
-    useQuiz4();
-
-  // 回答ボタンがクリックされたときの処理
-  const handleAnswer = (position: string) => {
-    // questionが存在する場合のみ処理を実行
-    if (question) {
-      // 選択された位置に基づいて、Elements型のオブジェクトを作成
-      const selectedPosition: Elements = {
-        id: question.id,
-        text: question.text,
-        answer: position,
-      };
-      // checkAnswer関数を呼び出して回答をチェック
-      checkAnswer(selectedPosition);
-    }
-  };
+    useQuiz5();
 
   // 問題がロードされていない場合のローディング表示
   if (question === null) {
@@ -42,9 +25,9 @@ export default function Quiz5() {
             勘定科目問題！
           </h1>
           <ScoreDisplay score={score} totalQuestions={totalQuestions} />
-          <AccountItemQuestionDisplay question={question} />
-          <AnswerButtons4
-            onAnswer={handleAnswer}
+          <LastQuisDisplay question={question} />
+          <AnswerButtons
+            onAnswer={checkAnswer}
             isAnswered={answer !== undefined}
           />
           <PositionResultDisplay result={result} />

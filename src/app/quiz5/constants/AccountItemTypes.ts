@@ -4,7 +4,7 @@ import { Elements } from '@/constants/type';
 // 勘定科目問題の型を定義
 export type QuizQuestion5 = {
   category: Elements; // Elements 型のオブジェクトを category として持つ
-  position: string; // position は string 型
+  position: 'home' | 'away';
 };
 
 export const generateQuestion5 = (): QuizQuestion5 => {
