@@ -18,7 +18,7 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className='flex justify-center items-center w-full p-4 bg-gray-100'>
+    <nav className='flex justify-center items-center w-full p-2 bg-gray-100'>
       {/* <Link
         href={currentPage > 1 ? `/quiz${currentPage - 1}` : '/'}
         className='px-4 py-2 bg-blue-500 text-white rounded-lg'

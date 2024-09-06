@@ -17,7 +17,7 @@ export default function Quiz4() {
   const handleAnswer = (position: string) => {
     // questionが存在する場合のみ処理を実行
     if (question) {
-      // 選択された位置（費用または収益）に基づいて、BaseElements型のオブジェクトを作成
+      // 選択された位置に基づいて、Elements型のオブジェクトを作成
       const selectedPosition: Elements = {
         id: question.id,
         text: question.text,

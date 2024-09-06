@@ -1,14 +1,14 @@
+import { combinedElements } from '@/app/quiz4/constants/combinedElements';
 import {
-  AccountingCategoryQuestion,
-  categoryPositions,
-  generateQuestion,
-} from '@/app/quiz1/constants/AccountingCategoryTypes';
-import { Position } from '@/constants/type';
+  generateQuestion5,
+  QuizQuestion5,
+} from '@/app/quiz5/constants/AccountItemTypes';
+import { combinedPositions, Position } from '@/constants/type';
 import { useEffect, useState } from 'react';
 
 // UseQuiz型を関数型として定義
 type UseQuiz = () => {
-  question: AccountingCategoryQuestion | null; // 現在の問題
+  question: QuizQuestion5 | null; // 現在の問題
   answer: Position | undefined; // ユーザーの回答
   result: boolean | undefined; // 回答結果
   score: number; // 現在のスコア
@@ -18,11 +18,9 @@ type UseQuiz = () => {
 };
 
 // useQuizをUseQuiz型の関数として実装
-export const useQuiz: UseQuiz = () => {
+export const useQuiz5: UseQuiz = () => {
   // 問題の状態を管理
-  const [question, setQuestion] = useState<AccountingCategoryQuestion | null>(
-    null
-  );
+  const [question, setQuestion] = useState<QuizQuestion5 | null>(null);
   // 回答の状態を管理
   const [answer, setAnswer] = useState<Position | undefined>(undefined);
   // 結果の状態を管理
@@ -34,7 +32,7 @@ export const useQuiz: UseQuiz = () => {
 
   // コンポーネントがマウントされたときに問題を生成
   useEffect(() => {
-    setQuestion(generateQuestion());
+    setQuestion(generateQuestion5());
   }, []);
 
   // 回答をチェックする関数
@@ -45,20 +43,15 @@ export const useQuiz: UseQuiz = () => {
     const positionKey = question.position === 'home' ? 'home' : 'away';
 
     // 正解を取得
-    const correctAnswer = categoryPositions[question.category][positionKey];
-
+    const correctAnswer = combinedElements[question.category][positionKey];
     // 選択された回答が正解かどうかを判定
     const isCorrect = selectedPosition === correctAnswer;
-
     // 回答を設定
     setAnswer(selectedPosition);
-
     // 結果を設定
     setResult(isCorrect);
-
     // 正解の場合、スコアを増加
     if (isCorrect) setScore(score + 1);
-    
     // 総問題数を増加
     setTotalQuestions(totalQuestions + 1);
   };
@@ -66,7 +59,7 @@ export const useQuiz: UseQuiz = () => {
   // 次の問題を生成する関数
   const nextQuestion = () => {
     // 新しい問題を生成
-    setQuestion(generateQuestion());
+    setQuestion(generateQuestion5());
     // 回答をリセット
     setAnswer(undefined);
     // 結果をリセット
@@ -93,4 +86,3 @@ export const useQuiz: UseQuiz = () => {
     nextQuestion,
   };
 };
-

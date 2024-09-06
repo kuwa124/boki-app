@@ -1,4 +1,7 @@
-import { combinedElements, generateQuestion4 } from '@/app/quiz4/constants/bsElements';
+import {
+  combinedElements,
+  generateQuestion4,
+} from '@/app/quiz4/constants/combinedElements';
 import { Elements } from '@/constants/type';
 import { useEffect, useState } from 'react';
 

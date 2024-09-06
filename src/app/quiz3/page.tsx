@@ -17,7 +17,7 @@ export default function Quiz3() {
   const handleAnswer = (position: string) => {
     // questionが存在する場合のみ処理を実行
     if (question) {
-      // 選択された位置（費用または収益）に基づいて、BaseElements型のオブジェクトを作成
+      // 選択された位置に基づいて、Elements型のオブジェクトを作成
       const selectedPosition: Elements = {
         id: question.id,
         text: question.text,
@@ -51,7 +51,8 @@ export default function Quiz3() {
         </div>
       </div>
       <div className='flex justify-center items-center max-w-full mx-10 sm:mx-auto text-white text-xs sm:text-lg'>
-        <div className='flex flex-col space-y-2 '>
+        <div className='flex flex-col space-y-2'>
+          <h1 className='font-bold text-xl tracking-widest'>◆ヒント◆</h1>
           <div className='container mx-auto'>
             <p className='mb-1 sm:mb-0 '>
               資産：増えたら嬉しいもの、お金そのもの、後にお金になるもの、売ればお金になるもの
