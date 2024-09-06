@@ -22,10 +22,14 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
   const colorPClass = result ? 'text-green-700' : 'text-red-700';
 
   return (
-    <div className={`text-center p-4 rounded-lg ${colorDivClass}`}>
-      <div className='flex justify-center items-center'>
-        <Icon className={`${colorIconClass} mr-2`} />
-        <p className={`${colorPClass} font-bold`}>{message}</p>
+    <div
+      className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 text-center p-4 rounded-lg ${colorDivClass}`}
+    >
+      <div className=' bg-white container mx-auto p-20'>
+        <div className='lg:text-5xl flex justify-center items-center'>
+          <Icon className={`${colorIconClass} mr-2 lg:size-20`} />
+          <p className={`${colorPClass} lg:ml-4 font-bold`}>{message}</p>
+        </div>
       </div>
     </div>
   );
