@@ -18,7 +18,7 @@ export const AnswerButtons4: React.FC<AnswerButtonsProps> = ({
           onClick={() => onAnswer(pos.name)}
           disabled={isAnswered}
           className={
-            'py-3 px-6 rounded-full text-white font-bold text-lg tracking-widest transition-transform transform hover:scale-105 bg-gray-500 hover:bg-blue-600'
+            'py-3 px-6 rounded-full text-white font-bold text-lg tracking-widest transition-transform transform hover:scale-105 bg-gray-500 hover:bg-blue-500'
           }
         >
           {pos.name}
