@@ -17,7 +17,11 @@ export const AnswerButtons3: React.FC<AnswerButtonsProps> = ({
           key={pos.name}
           onClick={() => onAnswer(pos.name)}
           disabled={isAnswered}
-          className={`py-2 px-6 rounded-full text-white font-bold text-lg tracking-widest transition-transform transform hover:scale-105 ${pos.style}`}
+          className={`py-2 px-6 rounded-full text-white font-bold text-lg tracking-widest transition-transform transform hover:scale-105 ${
+            pos.name !== '純資産'
+              ? pos.style
+              : 'bg-green-600 hover:bg-green-700'
+          }`}
         >
           {pos.name}
         </button>
