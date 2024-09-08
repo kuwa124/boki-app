@@ -23,12 +23,16 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 text-center p-4 rounded-lg ${colorDivClass}`}
+      className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 `}
     >
-      <div className=' bg-white container mx-auto p-20'>
-        <div className='text-sm sm:text-lg md:text-xl lg:text-5xl flex justify-center items-center'>
-          <Icon className={`${colorIconClass} mr-2 lg:size-20`} />
-          <p className={`${colorPClass} lg:ml-4 font-bold`}>{message}</p>
+      <div>
+        <div
+          className={`text-center rounded-lg ${colorDivClass} container mx-auto p-20`}
+        >
+          <div className='text-sm sm:text-lg md:text-xl lg:text-5xl flex justify-center items-center'>
+            <Icon className={`${colorIconClass} mr-2 lg:size-20`} />
+            <p className={`${colorPClass} lg:ml-4 font-bold`}>{message}</p>
+          </div>
         </div>
       </div>
     </div>
