@@ -16,8 +16,8 @@ type BsPositions = {
 };
 
 export const bsPositions: BsPositions[] = [
-  { name: '資　産', style: 'bg-orange-500 hover:bg-orange-600' },
-  { name: '負　 債', style: 'bg-blue-500 hover:bg-blue-600' },
+  { name: '資産', style: 'bg-orange-500 hover:bg-orange-600' },
+  { name: '負債', style: 'bg-blue-500 hover:bg-blue-600' },
   { name: '純資産', style: '' },
 ];
 

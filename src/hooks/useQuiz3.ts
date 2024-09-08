@@ -1,4 +1,7 @@
-import { bsElements,  generateQuestion3 } from '@/app/quiz3/constants/bsElements';
+import {
+  bsElements,
+  generateQuestion3,
+} from '@/app/quiz3/constants/bsElements';
 import { Elements } from '@/constants/type';
 import { useEffect, useState } from 'react';
 
