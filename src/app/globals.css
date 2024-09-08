@@ -2,20 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 @media (hover: none) {
-  .hover-bg-orange-600:hover {
-    background-color: #f97316 !important; /* Tailwind の bg-orange-500 の色 */
+  .hover\:bg-orange-600:hover {
+    @apply bg-orange-500 !important;
   }
-  .hover-bg-blue-600:hover {
-    background-color: #3b82f6 !important; /* Tailwind の bg-blue-500 の色 */
+  .hover\:bg-blue-600:hover {
+    @apply bg-blue-500 !important;
   }
-  .hover-bg-green-700:hover {
-    background-color: #16a34a !important; /* Tailwind の bg-green-600 の色 */
+  .hover\:bg-green-700:hover {
+    @apply bg-green-600 !important;
   }
-  .hover-bg-blue-500:hover {
-    background-color: #6b7280 !important; /* Tailwind の bg-gray-500 の色 */
+  .hover\:bg-blue-500:hover {
+    @apply bg-gray-500 !important;
   }
 
   button:hover {
-    scale: inherit !important;
+    transform: scale(1) !important;
   }
 }
