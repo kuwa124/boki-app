@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@media (hover: none) {
+  button:hover {
+    color: inherit !important;
+    background-color: inherit !important;
+    scale: inherit !important;
+  }
+}
