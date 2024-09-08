@@ -13,7 +13,7 @@ export const AnswerButtons: React.FC<AnswerButtonsProps> = ({
   isAnswered,
 }) => {
   return (
-    <div className='grid grid-cols-2 gap-4 mb-6'>
+    <div className='grid grid-cols-2 gap-4 p-4 mb-6'>
       {positions.map((pos) => (
         <button
           key={pos}
