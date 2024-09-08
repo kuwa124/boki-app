@@ -1,5 +1,6 @@
 'use client';
 
+import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
@@ -8,46 +9,44 @@ const Navigation: React.FC = () => {
   const pathname = usePathname();
   const currentPage = parseInt(pathname.split('quiz')[1]) || 0;
 
-  const pages = [
-    { href: '/', label: 'ホーム' },
-    // { href: '/quiz1', label: 'クイズ1' },
-    // { href: '/quiz2', label: 'クイズ2' },
-    // { href: '/quiz3', label: 'クイズ3' },
-    // { href: '/quiz4', label: 'クイズ4' },
-    // { href: '/quiz5', label: 'クイズ5' },
-  ];
-
   return (
-    <nav className='flex justify-center items-center w-full p-2 bg-gray-100'>
-      {/* <Link
-        href={currentPage > 1 ? `/quiz${currentPage - 1}` : '/'}
-        className='px-4 py-2 bg-blue-500 text-white rounded-lg'
-      >
-        前のページへ
-      </Link> */}
+    <nav className='flex justify-between items-center w-full px-6 py-2 bg-gray-100'>
+      {currentPage > 1 ? (
+        <Link
+          href={`/quiz${currentPage - 1}`}
+          className='flex items-center text-blue-500 hover:text-blue-600 transition-colors duration-300 hover:scale-105'
+          ria-label='前の問題へ'
+        >
+          <ChevronLeft className='mr-1' size={30} />
+          <span className='hidden font-semibold sm:inline '> 前の問題へ</span>
+        </Link>
+      ) : (
+        <div className='W-[116PX] sm:w-[140px]'></div>
+      )}
 
-      <div className='flex space-x-4 '>
-        {pages.map((page) => (
-          <Link
-            key={page.href}
-            href={page.href}
-            className={`text-xl font-bold px-2 py-1 rounded ${
-              pathname === page.href
-                ? 'bg-blue-500 text-white'
-                : 'text-blue-500'
-            }`}
-          >
-            {page.label}
-          </Link>
-        ))}
+      <div>
+        <Link
+          href='/'
+          className={`flex justify-center items-center text-xl font-bold px-2 py-1 rounded text-blue-500 hover:text-blue-600 hover:scale-105`}
+          aria-label='ホームへ戻る'
+        >
+          <Home className='mr-2' size={25} />
+          <span>ホーム</span>
+        </Link>
       </div>
 
-      {/* <Link
-        href={currentPage < 5 ? `/quiz${currentPage + 1}` : '/'}
-        className='px-4 py-2 bg-blue-500 text-white rounded-lg'
-      >
-        次のページへ
-      </Link> */}
+      {currentPage < 5 ? (
+        <Link
+          href={`/quiz${currentPage + 1}`}
+          className='flex items-center text-blue-500 hover:text-blue-600 transition-colors duration-300 hover:scale-105'
+          aria-label='次の問題へ'
+        >
+          <span className='hidden font-semibold sm:inline '>次の問題へ</span>
+          <ChevronRight className='ml-1' size={30} />
+        </Link>
+      ) : (
+        <div className='W-[116PX] sm:w-[140px]'></div>
+      )}
     </nav>
   );
 };
