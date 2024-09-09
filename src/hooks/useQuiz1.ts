@@ -1,5 +1,7 @@
 import {
+  AccountingCategory,
   AccountingCategoryQuestion,
+  categories,
   categoryPositions,
   generateQuestion,
 } from '@/app/quiz1/constants/AccountingCategoryTypes';
@@ -31,11 +33,33 @@ export const useQuiz: UseQuiz = () => {
   const [score, setScore] = useState(0);
   // 総問題数の状態を管理
   const [totalQuestions, setTotalQuestions] = useState(0);
+  // 解答した問題を表示しない為のstate
+  const [availableCategories, setAvailableCategories] = useState<
+    AccountingCategory[]
+  >([...categories]);
 
   // コンポーネントがマウントされたときに問題を生成
   useEffect(() => {
-    setQuestion(generateQuestion());
+    setQuestion(generateQuestion(availableCategories));
   }, []);
+
+  // 次の問題を生成する関数
+  const nextQuestion = () => {
+    // すべてのカテゴリーを使い切った場合、リセット
+    if (availableCategories.length === 1) {
+      setAvailableCategories([...categories]);
+    }
+
+    console.log('現在の利用可能カテゴリー:', availableCategories);
+
+    // 新しい質問を作成
+    const newQuestion = generateQuestion(availableCategories);
+    setQuestion(newQuestion);
+
+    // 回答と結果をリセット
+    setAnswer(undefined);
+    setResult(undefined);
+  };
 
   // 回答をチェックする関数
   const checkAnswer = (selectedPosition: Position) => {
@@ -58,19 +82,14 @@ export const useQuiz: UseQuiz = () => {
 
     // 正解の場合、スコアを増加
     if (isCorrect) setScore(score + 1);
-    
+
     // 総問題数を増加
     setTotalQuestions(totalQuestions + 1);
-  };
 
-  // 次の問題を生成する関数
-  const nextQuestion = () => {
-    // 新しい問題を生成
-    setQuestion(generateQuestion());
-    // 回答をリセット
-    setAnswer(undefined);
-    // 結果をリセット
-    setResult(undefined);
+    // 使用したカテゴリーを削除
+    setAvailableCategories((prev) =>
+      prev.filter((cat) => cat !== question.category)
+    );
   };
 
   // 結果表示後、自動的に次の問題に進むためのeffect
@@ -93,4 +112,3 @@ export const useQuiz: UseQuiz = () => {
     nextQuestion,
   };
 };
-

@@ -19,7 +19,7 @@ export type AccountingCategoryQuestion = {
   position: 'home' | 'away';
 };
 
-const categories: AccountingCategory[] = [
+export const categories: AccountingCategory[] = [
   '資産',
   '負債',
   '純資産',
@@ -27,8 +27,11 @@ const categories: AccountingCategory[] = [
   '収益',
 ];
 
-export const generateQuestion = (): AccountingCategoryQuestion => {
-  const category = categories[Math.floor(Math.random() * categories.length)];
+export const generateQuestion = (
+  availableCategories: AccountingCategory[]
+): AccountingCategoryQuestion => {
+  const randomIndex = Math.floor(Math.random() * availableCategories.length)
+  const category = availableCategories[randomIndex];
   const position = Math.random() < 0.5 ? 'home' : 'away';
   return { category, position };
 };
