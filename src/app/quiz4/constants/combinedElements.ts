@@ -5,11 +5,14 @@ import { Elements } from '@/constants/type';
 // ベースとなる要素の配列を定義する
 export const combinedElements: Elements[] = [
   ...bsElements.map((element, index) => ({ ...element, id: index + 1 })),
-  ...plElements.map((element, index) => ({ ...element, id: index + 1 +bsElements.length})),
+  ...plElements.map((element, index) => ({
+    ...element,
+    id: index + 1 + bsElements.length,
+  })),
 ];
 
 export const generateQuestion4 = (combinedElements: Elements[]): Elements => {
-  const category =
-    combinedElements[Math.floor(Math.random() * combinedElements.length)];
+  const randomIndex = Math.floor(Math.random() * combinedElements.length);
+  const category = combinedElements[randomIndex];
   return category;
 };

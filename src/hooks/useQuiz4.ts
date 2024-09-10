@@ -28,11 +28,32 @@ export const useQuiz4: UseQuiz = () => {
   const [score, setScore] = useState(0);
   // 総問題数の状態を管理
   const [totalQuestions, setTotalQuestions] = useState(0);
+  // 解答した問題を表示しない為のstate
+  const [availableCategories, setAvailableCategories] = useState<Elements[]>([
+    ...combinedElements,
+  ]);
 
   // コンポーネントがマウントされたときに問題を生成
   useEffect(() => {
-    setQuestion(generateQuestion4(combinedElements));
+    setQuestion(generateQuestion4(availableCategories));
   }, []);
+
+  // 次の問題を生成する関数
+  const nextQuestion = () => {
+    // すべてのカテゴリーを使い切った場合、リセット
+    if (availableCategories.length === 1) {
+      setAvailableCategories([...combinedElements]);
+    }
+
+    // console.log('現在の利用可能カテゴリー:', availableCategories);
+
+    // 新しい問題を生成
+    setQuestion(generateQuestion4(availableCategories));
+
+    // 回答と結果をリセット
+    setAnswer(undefined);
+    setResult(undefined);
+  };
 
   // 回答をチェックする関数
   const checkAnswer = (selectedPosition: Elements) => {
@@ -40,26 +61,24 @@ export const useQuiz4: UseQuiz = () => {
 
     // 正解を取得
     const correctAnswer = question.answer;
+
     // 選択された回答が正解かどうかを判定
     const isCorrect = selectedPosition.answer === correctAnswer;
+
     // 回答を設定
     setAnswer(selectedPosition);
+
     // 結果を設定
     setResult(isCorrect);
+
     // 正解の場合、スコアを増加
     if (isCorrect) setScore(score + 1);
+
     // 総問題数を増加
     setTotalQuestions(totalQuestions + 1);
-  };
 
-  // 次の問題を生成する関数
-  const nextQuestion = () => {
-    // 新しい問題を生成
-    setQuestion(generateQuestion4(combinedElements));
-    // 回答をリセット
-    setAnswer(undefined);
-    // 結果をリセット
-    setResult(undefined);
+    // 使用したカテゴリーを削除
+    setAvailableCategories((prev) => prev.filter((cat) => cat !== question));
   };
 
   // 結果表示後、自動的に次の問題に進むためのeffect
