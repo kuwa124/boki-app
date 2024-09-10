@@ -1,4 +1,3 @@
-import { combinedElements } from '@/app/quiz4/constants/combinedElements';
 import { Elements } from '@/constants/type';
 
 // 勘定科目問題の型を定義
@@ -7,9 +6,11 @@ export type QuizQuestion5 = {
   position: 'home' | 'away';
 };
 
-export const generateQuestion5 = (): QuizQuestion5 => {
-  const categories = combinedElements;
-  const category = categories[Math.floor(Math.random() * categories.length)];
+export const generateQuestion5 = (
+  availableCategories: Elements[]
+): QuizQuestion5 => {
+  const randomIndex = Math.floor(Math.random() * availableCategories.length);
+  const category = availableCategories[randomIndex];
   const position = Math.random() < 0.5 ? 'home' : 'away';
   return { category, position };
 };
