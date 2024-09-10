@@ -35,6 +35,7 @@ export const bsElements: Elements[] = [
 ];
 
 export const generateQuestion3 = (bsElements: Elements[]): Elements => {
-  const category = bsElements[Math.floor(Math.random() * bsElements.length)];
+  const randomIndex = Math.floor(Math.random() * bsElements.length);
+  const category = bsElements[randomIndex];
   return category;
 };
