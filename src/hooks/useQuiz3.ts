@@ -45,7 +45,7 @@ export const useQuiz3: UseQuiz = () => {
       setAvailableCategories([...bsElements]);
     }
 
-    console.log('現在の利用可能カテゴリー:', availableCategories);
+    // console.log('現在の利用可能カテゴリー:', availableCategories);
 
     // 新しい問題を生成
     setQuestion(generateQuestion3(availableCategories));

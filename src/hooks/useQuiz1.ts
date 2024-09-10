@@ -50,7 +50,7 @@ export const useQuiz: UseQuiz = () => {
       setAvailableCategories([...categories]);
     }
 
-    console.log('現在の利用可能カテゴリー:', availableCategories);
+    // console.log('現在の利用可能カテゴリー:', availableCategories);
 
     // 新しい質問を作成
     const newQuestion = generateQuestion(availableCategories);
