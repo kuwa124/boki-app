@@ -1,4 +1,4 @@
-import { Elements } from "@/constants/type";
+import { Elements } from '@/constants/type';
 
 // ベースとなる要素の配列を定義する
 export const plElements: Elements[] = [
@@ -24,8 +24,8 @@ export const plElements: Elements[] = [
   { id: 20, text: '固定資産売却損', answer: '費用' },
 ];
 
-export const generateQuestion2 = (plElements: Elements[]):Elements => {
-  const category =
-    plElements[Math.floor(Math.random() * plElements.length)];
+export const generateQuestion2 = (plElements: Elements[]): Elements => {
+  const randomIndex = Math.floor(Math.random() * plElements.length);
+  const category = plElements[randomIndex];
   return category;
 };
