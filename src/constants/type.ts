@@ -6,7 +6,7 @@ export type Elements = {
   id: number;
   text: string;
   answer: string;
-  message?: string;
+  message: string | React.ReactNode;
 };
 
 export const positions: string[] = ['費用', '収益'];

@@ -3,7 +3,7 @@
 import { AnswerButtons4 } from '@/app/quiz4/components/AnswerButtons4';
 import { AccountItemQuestionDisplay } from '@/components/AccountItemQuestionDisplay';
 import { Loading } from '@/components/Loading';
-import Navigation from '@/components/Navigation';
+import { Navigation } from '@/components/Navigation';
 import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
 import { Elements } from '@/constants/type';
@@ -22,6 +22,7 @@ export default function Quiz4() {
         id: question.id,
         text: question.text,
         answer: position,
+        message: question.message,
       };
       // checkAnswer関数を呼び出して回答をチェック
       checkAnswer(selectedPosition);
@@ -47,7 +48,7 @@ export default function Quiz4() {
             onAnswer={handleAnswer}
             isAnswered={answer !== undefined}
           />
-          <PositionResultDisplay result={result} />
+          <PositionResultDisplay result={result} question={question} />
         </div>
       </div>
     </main>

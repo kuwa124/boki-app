@@ -98,7 +98,7 @@ export const useQuiz: UseQuiz = () => {
       if (result !== undefined) {
         nextQuestion();
       }
-    }, 2000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, [result]);
 
