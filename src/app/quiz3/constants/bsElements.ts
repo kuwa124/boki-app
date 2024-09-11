@@ -53,7 +53,7 @@ export const bsElements: Elements[] = [
   { id: 46, text: '預り金', answer: '負債' },
   { id: 47, text: '社会保険料預り金', answer: '負債' },
   { id: 48, text: '所得税預り金', answer: '負債' },
-  { id: 49, text: '住民税預り金', answer: '負債' },
+  { id: 49, text: '従業員預り金', answer: '負債' },
 
   // 純資産
   { id: 50, text: '資本金', answer: '純資産' },
