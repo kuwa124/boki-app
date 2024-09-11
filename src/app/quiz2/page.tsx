@@ -37,7 +37,7 @@ export default function Quiz2() {
     <main className='text-gray-600 min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>
       <Navigation />
       <div className='flex items-center justify-center'>
-        <div className='bg-white p-8 m-4 rounded-xl shadow-2xl max-w-md w-full mt-10 sm:mt-30'>
+        <div className='bg-white p-8 m-4 rounded-xl shadow-2xl max-w-md w-full mt-10'>
           <h1 className='sm:text-3xl text-2xl font-bold text-center mb-6 text-purple-600'>
             損益計算書の分類問題！
           </h1>
@@ -51,7 +51,7 @@ export default function Quiz2() {
         </div>
       </div>
 
-      <div className='items-center space-y-2 max-w-2xl ml-10 sm:mx-auto text-white text-xs sm:text-lg'>
+      <div className='items-center space-y-2 max-w-2xl ml-10 sm:mx-auto text-white text-xs sm:text-lg pb-4'>
         <h1 className='font-bold text-xl tracking-widest'>◆ヒント◆</h1>
         <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center w-full'>
           <p className='w-full sm:w-1/2'>収益：「受取○○」「○○益」</p>

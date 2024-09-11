@@ -37,7 +37,7 @@ export default function Quiz3() {
     <main className='text-gray-600 min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>
       <Navigation />
       <div className='flex items-center justify-center'>
-        <div className='bg-white p-2 sm:p-8 m-4 rounded-xl shadow-2xl max-w-lg w-full mt-4 sm:mt-30'>
+        <div className='bg-white p-2 sm:p-8 m-4 rounded-xl shadow-2xl max-w-lg w-full mt-4'>
           <h1 className='sm:text-3xl text-2xl font-bold text-center mb-6 text-purple-600'>
             貸借対照表の分類問題！
           </h1>
@@ -50,7 +50,7 @@ export default function Quiz3() {
           <PositionResultDisplay result={result} />
         </div>
       </div>
-      <div className='flex justify-center items-center max-w-full mx-10 sm:mx-auto text-white text-xs sm:text-lg'>
+      <div className='flex justify-center items-center max-w-full mx-10 sm:mx-auto text-white text-xs sm:text-lg pb-4 '>
         <div className='flex flex-col space-y-2'>
           <h1 className='font-bold text-xl tracking-widest'>◆ヒント◆</h1>
           <div className='container mx-auto'>
