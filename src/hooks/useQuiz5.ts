@@ -96,12 +96,13 @@ export const useQuiz5: UseQuiz = () => {
 
   // 結果表示後、自動的に次の問題に進むためのeffect
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (result !== undefined) {
+    if (result !== undefined) {
+      const delay = result ? 2000 : 3000; // resultがtrueなら2000ms、falseなら3000ms
+      const timer = setTimeout(() => {
         nextQuestion();
-      }
-    }, 2000);
-    return () => clearTimeout(timer);
+      }, delay);
+      return () => clearTimeout(timer);
+    }
   }, [result]);
 
   return {

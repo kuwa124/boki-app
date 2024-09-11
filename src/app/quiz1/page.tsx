@@ -3,7 +3,7 @@
 import { AnswerButtons } from '@/app/quiz1/components/AnswerButtons1';
 import { PositionQuestionDisplay } from '@/app/quiz1/components/PositionQuestionDisplay';
 import { Loading } from '@/components/Loading';
-import Navigation from '@/components/Navigation';
+import { Navigation } from '@/components/Navigation';
 import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
 import { useQuiz } from '@/hooks/useQuiz1';
@@ -31,7 +31,7 @@ export default function Quiz1() {
             onAnswer={checkAnswer}
             isAnswered={answer !== undefined}
           />
-          <PositionResultDisplay result={result} />
+          <PositionResultDisplay result={result} question={undefined} />
         </div>
       </div>
     </main>

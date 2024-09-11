@@ -43,7 +43,12 @@ export const plElements: Elements[] = [
     message: '「支払」がつくので費用',
   },
   { id: 10, text: '保険料', answer: '費用', message: '「料」がつくので費用' },
-  { id: 11, text: '租税公課', answer: '費用' },
+  {
+    id: 11,
+    text: '租税公課',
+    answer: '費用',
+    message: '会社の「収益」を得るために必要な税金の支払いだから費用',
+  },
   {
     id: 12,
     text: '支払利息',
@@ -76,7 +81,7 @@ export const plElements: Elements[] = [
     id: 17,
     text: '貸倒引当金繰入',
     answer: '費用',
-    message: '繰入」は費用',
+    message: '「繰入」は費用',
   },
   { id: 18, text: '貸倒損失', answer: '費用', message: '「損」がつくので費用' },
   { id: 19, text: '通信費', answer: '費用', message: '「費」がつくので費用' },
@@ -88,18 +93,58 @@ export const plElements: Elements[] = [
     message: '「費」がつくので費用',
   },
   { id: 22, text: '修繕費', answer: '費用', message: '「費」がつくので費用' },
-  { id: 23, text: '法人税等', answer: '費用' },
+  {
+    id: 23,
+    text: '法人税等',
+    answer: '費用',
+    message: '「利益」から支払う税金だから費用',
+  },
 
   // 収益
-  { id: 24, text: '売上', answer: '収益' },
-  { id: 25, text: '受取利息', answer: '収益' },
-  { id: 26, text: '受取手数料', answer: '収益' },
-  { id: 27, text: '受取家賃', answer: '収益' },
-  { id: 28, text: '受取地代', answer: '収益' },
-  { id: 29, text: '固定資産売却益', answer: '収益' },
-  { id: 30, text: '償却債権取立益', answer: '収益' },
-  { id: 31, text: '雑益', answer: '収益' },
-  { id: 32, text: '貸倒引当金戻入', answer: '収益' },
+  { id: 24, text: '売上', answer: '収益', message: '収益の代表格' },
+  {
+    id: 25,
+    text: '受取利息',
+    answer: '収益',
+    message: '「受取」がつくので収益',
+  },
+  {
+    id: 26,
+    text: '受取手数料',
+    answer: '収益',
+    message: '「受取」がつくので収益',
+  },
+  {
+    id: 27,
+    text: '受取家賃',
+    answer: '収益',
+    message: '「受取」がつくので収益',
+  },
+  {
+    id: 28,
+    text: '受取地代',
+    answer: '収益',
+    message: '「受取」がつくので収益',
+  },
+  {
+    id: 29,
+    text: '固定資産売却益',
+    answer: '収益',
+    message: '「益」がつくので収益',
+  },
+  {
+    id: 30,
+    text: '償却債権取立益',
+    answer: '収益',
+    message: '「益」がつくので収益',
+  },
+  { id: 31, text: '雑益', answer: '収益', message: '「益」がつくので収益' },
+  {
+    id: 32,
+    text: '貸倒引当金戻入',
+    answer: '収益',
+    message: '「戻入」は収益',
+  },
 ];
 
 export const generateQuestion2 = (plElements: Elements[]): Elements => {

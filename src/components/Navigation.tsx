@@ -1,16 +1,12 @@
 'use client';
 
+import { usePage } from '@/hooks/usePage';
 import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 
-const Navigation: React.FC = () => {
-  // 現在のURLパスを取得
-  const pathname = usePathname();
-
-  // 'quiz'の後の数字を抽出し、ページ番号として保存（例: '/quiz/3' → 3）。数字がない場合は0。
-  const currentPage = parseInt(pathname.split('quiz')[1]) || 0;
+export const Navigation: React.FC = () => {
+  const { currentPage } = usePage();
 
   return (
     <nav className='flex justify-between items-center w-full px-6 py-2 bg-gray-100'>
@@ -53,5 +49,3 @@ const Navigation: React.FC = () => {
     </nav>
   );
 };
-
-export default Navigation;
