@@ -6,6 +6,7 @@ export type Elements = {
   id: number;
   text: string;
   answer: string;
+  message?: string;
 };
 
 export const positions: string[] = ['費用', '収益'];
