@@ -43,7 +43,10 @@ export const bsElements: Elements[] = [
     id: 7,
     text: '電子記録債権',
     answer: '資産',
-    message: '後にお金になるので、資産',
+    message: `
+    後にお金になるので、資産
+    「権」は、資産
+    `,
   },
   {
     id: 8,
@@ -61,7 +64,7 @@ export const bsElements: Elements[] = [
     id: 10,
     text: '繰越商品',
     answer: '資産',
-    message: '売ればお金になる',
+    message: '売ればお金になるので、資産',
   },
   { id: 11, text: '貯蔵品', answer: '資産', message: '売ればお金になる' },
   {
@@ -205,7 +208,10 @@ export const bsElements: Elements[] = [
     id: 32,
     text: '電子記録債務',
     answer: '負債',
-    message: '返さないといけないお金なので、負債',
+    message: `
+    返さないといけないお金なので、負債
+    「務」は、負債
+    `,
   },
   {
     id: 33,
@@ -340,22 +346,28 @@ export const bsElements: Elements[] = [
     id: 50,
     text: '資本金',
     answer: '純資産',
-    message:
-      '3級で出題される「純資産」は「資本金」「繰越利益剰余金」「利益準備金」の3つ',
+    message: `
+      3級で出題される「純資産」は
+      「資本金」「繰越利益剰余金」「利益準備金」の3つ
+      `,
   },
   {
     id: 51,
     text: '繰越利益剰余金',
     answer: '純資産',
-    message:
-      '3級で出題される「純資産」は「資本金」「繰越利益剰余金」「利益準備金」の3つ',
+    message: `
+      3級で出題される「純資産」は
+      「資本金」「繰越利益剰余金」「利益準備金」の3つ
+      `,
   },
   {
     id: 52,
     text: '利益準備金',
     answer: '純資産',
-    message:
-      '3級で出題される「純資産」は「資本金」「繰越利益剰余金」「利益準備金」の3つ',
+    message: `
+      3級で出題される「純資産」は
+      「資本金」「繰越利益剰余金」「利益準備金」の3つ
+      `,
   },
 ];
 

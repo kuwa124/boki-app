@@ -51,7 +51,9 @@ export const IncorrectAnswerMessage: React.FC<IncorrectAnswerMessageProps> = ({
         </div>
       ) : (
         <div className='mt-2'>
-          <p className='font-semibold'>解説：{question.message}</p>
+          <p className='text-xs sm:text-base font-semibold text-left whitespace-pre-line'>
+            解説：{question.message}
+          </p>
         </div>
       )}
     </div>

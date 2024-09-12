@@ -84,7 +84,7 @@ export const useQuiz2: UseQuiz = () => {
   // 結果表示後、自動的に次の問題に進むためのeffect
   useEffect(() => {
     if (result !== undefined) {
-      const delay = result ? 2000 : 3000; // resultがtrueなら2000ms、falseなら3000ms
+      const delay = result ? 2000 : 4000; // resultがtrueなら2000ms、falseなら3000ms
       const timer = setTimeout(() => {
         nextQuestion();
       }, delay);

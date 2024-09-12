@@ -15,7 +15,7 @@ type PositionResultDisplayProps = {
 export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
   result,
   question,
-  position
+  position,
 }) => {
   if (result === undefined) {
     return undefined; //何もしない（早期リターン）
@@ -31,16 +31,20 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
     <div
       className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 `}
     >
-      <div>
+      <div className='mx-2'>
         <div
-          className={`text-center rounded-lg ${colorDivClass} container mx-auto p-20`}
+          className={`text-center rounded-lg ${colorDivClass} container mx-auto p-10 sm:p-20`}
         >
           <div className='text-sm sm:text-lg md:text-xl lg:text-5xl flex justify-center items-center'>
             <Icon className={`${colorIconClass} mr-2 lg:size-20`} />
             <p className={`${colorPClass} lg:ml-4 font-bold`}>{message}</p>
           </div>
           {!result && question && (
-            <IncorrectAnswerMessage result={result} question={question} position={position} />
+            <IncorrectAnswerMessage
+              result={result}
+              question={question}
+              position={position}
+            />
           )}
         </div>
       </div>
