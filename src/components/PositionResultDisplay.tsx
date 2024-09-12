@@ -9,11 +9,13 @@ import { CheckCircle, XCircle } from 'lucide-react';
 type PositionResultDisplayProps = {
   result: boolean | undefined;
   question: Elements | undefined;
+  position: 'home' | 'away' | undefined;
 };
 
 export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
   result,
   question,
+  position
 }) => {
   if (result === undefined) {
     return undefined; //何もしない（早期リターン）
@@ -38,7 +40,7 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
             <p className={`${colorPClass} lg:ml-4 font-bold`}>{message}</p>
           </div>
           {!result && question && (
-            <IncorrectAnswerMessage result={result} question={question} />
+            <IncorrectAnswerMessage result={result} question={question} position={position} />
           )}
         </div>
       </div>
