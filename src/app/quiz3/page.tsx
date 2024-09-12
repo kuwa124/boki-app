@@ -48,7 +48,11 @@ export default function Quiz3() {
             onAnswer={handleAnswer}
             isAnswered={answer !== undefined}
           />
-          <PositionResultDisplay result={result} question={question} />
+          <PositionResultDisplay
+            result={result}
+            question={question}
+            position={undefined}
+          />
         </div>
       </div>
       <div className='flex justify-center items-center max-w-full mx-10 sm:mx-auto text-white text-xs sm:text-lg pb-4 '>

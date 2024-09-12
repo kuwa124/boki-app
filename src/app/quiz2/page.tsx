@@ -48,7 +48,11 @@ export default function Quiz2() {
             onAnswer={handleAnswer}
             isAnswered={answer !== undefined}
           />
-          <PositionResultDisplay result={result} question={question} />
+          <PositionResultDisplay
+            result={result}
+            question={question}
+            position={undefined}
+          />
         </div>
       </div>
 

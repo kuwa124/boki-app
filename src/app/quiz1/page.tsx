@@ -31,7 +31,11 @@ export default function Quiz1() {
             onAnswer={checkAnswer}
             isAnswered={answer !== undefined}
           />
-          <PositionResultDisplay result={result} question={undefined} position={undefined} />
+          <PositionResultDisplay
+            result={result}
+            question={undefined}
+            position={undefined}
+          />
         </div>
       </div>
     </main>
