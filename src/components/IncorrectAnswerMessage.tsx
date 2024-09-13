@@ -13,7 +13,7 @@ type IncorrectAnswerMessageProps = {
 };
 
 export const IncorrectAnswerMessage: React.FC<IncorrectAnswerMessageProps> = ({
-  result,
+  // result,
   question,
   position,
 }) => {
@@ -31,9 +31,10 @@ export const IncorrectAnswerMessage: React.FC<IncorrectAnswerMessageProps> = ({
     return undefined; //何もしない（早期リターン）
   }
 
-  if (result === true) {
-    return undefined; //何もしない（早期リターン）
-  }
+  // 不正解の時のみ表示
+  // if (result === true) {
+  //   return undefined; //何もしない（早期リターン）
+  // }
 
   return (
     <div>
@@ -51,7 +52,7 @@ export const IncorrectAnswerMessage: React.FC<IncorrectAnswerMessageProps> = ({
         </div>
       ) : (
         <div className='mt-2'>
-          <p className='text-xs sm:text-base font-semibold text-left whitespace-pre-line'>
+          <p className='text-xs sm:text-base font-semibold text-left lg:text-center whitespace-pre-line'>
             解説：{question.message}
           </p>
         </div>

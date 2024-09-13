@@ -39,7 +39,7 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
             <Icon className={`${colorIconClass} mr-2 lg:size-20`} />
             <p className={`${colorPClass} lg:ml-4 font-bold`}>{message}</p>
           </div>
-          {!result && question && (
+          {question && (
             <IncorrectAnswerMessage
               result={result}
               question={question}
