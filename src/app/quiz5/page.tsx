@@ -31,7 +31,11 @@ export default function Quiz5() {
             onAnswer={checkAnswer}
             isAnswered={answer !== undefined}
           />
-          <PositionResultDisplay result={result} question={question.category} position={question.position} />
+          <PositionResultDisplay
+            result={result}
+            question={question.category}
+            position={question.position}
+          />
         </div>
       </div>
     </main>
