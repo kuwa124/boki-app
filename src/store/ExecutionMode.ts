@@ -1,11 +1,11 @@
 import { atom } from 'recoil';
 
-type ExecutionMode = {
-  mode: 'unlimited' | 'limited';
-  LimitCount: number;
-};
+export const executionModeTypeAtom = atom<'unlimited' | 'limited'>({
+  key: 'executionModeTYpe', // 一意のキー
+  default: 'unlimited', // 初期値
+});
 
-export const executionModeAtom = atom<ExecutionMode>({
-  key: 'executionMode', // 一意のキー
-  default: { mode: 'unlimited', LimitCount: 5 }, // 初期値
+export const executionLimitCountAtom = atom<number>({
+  key: 'executionLimitCount', // 一意のキー
+  default: 5, // 初期値
 });

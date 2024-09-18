@@ -1,20 +1,11 @@
 'use client';
+import { useModeSelection } from '@/hooks/useModeSelection';
 import { Hash, InfinityIcon } from 'lucide-react';
-import React, { useState } from 'react';
-
-type MODE = 'unlimited' | 'limited' | undefined;
+import React from 'react';
 
 export const ModeSelectionPage: React.FC = () => {
-  const [selectedMode, setSelectedMode] = useState<MODE>(undefined);
-  const [rounds, setRounds] = useState<number>(5);
-
-  const handleModeSelect = (mode: MODE) => {
-    setSelectedMode(mode);
-  };
-
-  const handleRoundschange = (increment: number) => {
-    setRounds((prev) => Math.max(5, prev + increment));
-  };
+  const { handleModeSelect, selectedMode, handleRoundschange, rounds } =
+    useModeSelection();
 
   return (
     <div className='min-h-screen bg-gray-100 flex justify-center items-center '>
