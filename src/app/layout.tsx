@@ -1,3 +1,4 @@
+import { ClientWrapper } from '@/components/ClientWrapper';
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
@@ -16,7 +17,7 @@ export default function RootLayout({
     <html lang='ja'>
       <body className={notoSansJP.className}>
         {/* <Navigation /> */}
-        {children}
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );
