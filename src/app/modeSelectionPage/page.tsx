@@ -1,9 +1,9 @@
 'use client';
 import { useModeSelection } from '@/hooks/useModeSelection';
 import { Hash, InfinityIcon } from 'lucide-react';
-import React from 'react';
+import Link from 'next/link';
 
-export const ModeSelectionPage: React.FC = () => {
+export default function ModeSelectionPage() {
   const { handleModeSelect, selectedMode, handleRoundschange, rounds } =
     useModeSelection();
 
@@ -28,7 +28,7 @@ export const ModeSelectionPage: React.FC = () => {
               <InfinityIcon size={48} className='text-blue-500 mb-4' />
               <h2 className='text-xl font-semibold mb-2'>無制限モード</h2>
               <p className='text-gray-600 text-center text-sm sm:text-base'>
-                時間や回数の制限なく、好きなだけプレイできます。
+                回数の制限なく、好きなだけプレイできます。
               </p>
             </div>
           </button>
@@ -48,7 +48,7 @@ export const ModeSelectionPage: React.FC = () => {
               <Hash size={48} className='text-green-500 mb-4' />
               <h2 className='text-xl font-semibold mb-2'>回数指定モード</h2>
               <p className='text-gray-600 text-center text-sm sm:text-base'>
-                プレイ回数を指定して、集中的にプレイできます。
+                プレイ回数を指定して、正解率に応じてスコアが表示されます。
               </p>
             </div>
           </button>
@@ -77,18 +77,14 @@ export const ModeSelectionPage: React.FC = () => {
 
         {/* スタートボタン */}
         <div className='text-center'>
-          <button
-            disabled={!selectedMode}
-            className={`px-8 py-3 rounded-full text-lg font-semibold transition-all ${
-              selectedMode
-                ? 'bg-blue-500 text-white hover:bg-blue-600'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
+          <Link
+            href={`/`}
+            className='px-8 py-3 rounded-full text-lg font-semibold transition-all bg-blue-500 text-white hover:bg-blue-600'
           >
-            ゲームスタート
-          </button>
+            設定完了！ Ready... Go
+          </Link>
         </div>
       </div>
     </div>
   );
-};
+}

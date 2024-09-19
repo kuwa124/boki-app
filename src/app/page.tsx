@@ -29,6 +29,12 @@ export default function Home() {
               {page.pageTitle}
             </Link>
           ))}
+          <Link
+            href={'/modeSelectionPage'}
+            className='p-3 border-4 text-blue-500 tracking-widest border-blue-600 rounded-md text-center font-bold text-lg hover:bg-blue-600 hover:text-white transition-colors'
+          >
+            ゲームモード選択
+          </Link>
         </div>
       </div>
     </main>
