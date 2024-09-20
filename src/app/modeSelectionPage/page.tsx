@@ -81,7 +81,7 @@ export default function ModeSelectionPage() {
             href={`/`}
             className='px-8 py-3 rounded-full text-lg font-semibold transition-all bg-blue-500 text-white hover:bg-blue-600'
           >
-            設定完了！ Ready... Go
+            設定完了！ホームへ
           </Link>
         </div>
       </div>

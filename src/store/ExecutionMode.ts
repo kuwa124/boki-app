@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 export const executionModeTypeAtom = atom<'unlimited' | 'limited'>({
-  key: 'executionModeTYpe', // 一意のキー
+  key: 'executionModeType', // 一意のキー
   default: 'unlimited', // 初期値
 });
 

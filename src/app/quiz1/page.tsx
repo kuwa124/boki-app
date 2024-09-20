@@ -2,19 +2,69 @@
 
 import { AnswerButtons } from '@/app/quiz1/components/AnswerButtons1';
 import { PositionQuestionDisplay } from '@/app/quiz1/components/PositionQuestionDisplay';
+import { FinalScore } from '@/components/FinalScore';
 import { Loading } from '@/components/Loading';
 import { Navigation } from '@/components/Navigation';
 import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
 import { useQuiz } from '@/hooks/useQuiz1';
+import { executionLimitCountAtom } from '@/store/ExecutionMode';
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 
 export default function Quiz1() {
-  const { question, answer, result, score, totalQuestions, checkAnswer } =
-    useQuiz();
+  const {
+    question,
+    answer,
+    result,
+    score,
+    totalQuestions,
+    checkAnswer,
+    setTotalQuestions,
+    setScore,
+  } = useQuiz();
+
+  // 実行制限回数の状態を管理
+  const [executionLimitCount, setExecutionLimitCount] = useRecoilState(
+    executionLimitCountAtom
+  );
+
+  // ゲーム終了状態を管理
+  const [gameEnded, setGameEnded] = useState<boolean>(false);
+
+  // 総問題数が変更されたときの処理
+  useEffect(() => {
+    if (totalQuestions === executionLimitCount && result === undefined) {
+      handleGameEnd();
+    }
+  }, [totalQuestions, result]);
+
+  // ゲーム終了時の処理
+  const handleGameEnd = () => {
+    setGameEnded(true);
+  };
+
+  // ゲームを再スタートする処理
+  const handleRestart = () => {
+    setGameEnded(false);
+    setTotalQuestions(0);
+    setScore(0);
+  };
 
   // 問題がロードされていない場合のローディング表示
   if (question === null) {
     return <Loading />;
+  }
+
+  //  ゲーム終了時の処理
+  if (gameEnded) {
+    return (
+      <FinalScore
+        score={score}
+        totalQuestions={totalQuestions}
+        onRestart={handleRestart}
+      />
+    );
   }
 
   return (
