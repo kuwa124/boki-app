@@ -58,7 +58,7 @@ export const FinalScore: React.FC<FinalScoreProps> = ({
   const { grade, icon: Icon, color, message } = getGrade(percentage);
   return (
     <div className='bg-gray-100 min-h-screen flex justify-center items-center '>
-      <div className='bg-white p-8 rounded-xl shadow-lg max-w-md mx-4 text-center'>
+      <div className='bg-white px-20 py-8 rounded-xl shadow-lg  mx-4 text-center'>
         <h2 className='text-3xl font-bold mb-3 text-gray-700'>最終スコア</h2>
 
         {/* プログレスバー */}
