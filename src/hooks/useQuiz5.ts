@@ -8,7 +8,7 @@ import {
   QuizQuestion5,
 } from '@/app/quiz5/constants/AccountItemTypes';
 import { Elements, Position } from '@/constants/type';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 // UseQuiz型を関数型として定義
 type UseQuiz = () => {
@@ -19,12 +19,16 @@ type UseQuiz = () => {
   totalQuestions: number; // 総問題数
   checkAnswer: (selectedPosition: Position) => void; // 回答をチェックする関数
   nextQuestion: () => void; // 次の問題を生成する関数
+  setTotalQuestions: Dispatch<SetStateAction<number>>;
+  setScore: Dispatch<SetStateAction<number>>;
 };
 
 // useQuizをUseQuiz型の関数として実装
 export const useQuiz5: UseQuiz = () => {
   // 問題の状態を管理
-  const [question, setQuestion] = useState<QuizQuestion5 | undefined>(undefined);
+  const [question, setQuestion] = useState<QuizQuestion5 | undefined>(
+    undefined
+  );
   // 回答の状態を管理
   const [answer, setAnswer] = useState<Position | undefined>(undefined);
   // 結果の状態を管理
@@ -113,5 +117,7 @@ export const useQuiz5: UseQuiz = () => {
     totalQuestions,
     checkAnswer,
     nextQuestion,
+    setScore,
+    setTotalQuestions,
   };
 };
