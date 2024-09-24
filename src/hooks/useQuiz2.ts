@@ -3,7 +3,7 @@ import {
   plElements,
 } from '@/app/quiz2/constants/plElements';
 import { Elements } from '@/constants/type';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 // UseQuiz型を関数型として定義
 type UseQuiz = () => {
@@ -14,6 +14,8 @@ type UseQuiz = () => {
   totalQuestions: number; // 総問題数
   checkAnswer: (selectedPosition: Elements) => void; // 回答をチェックする関数
   nextQuestion: () => void; // 次の問題を生成する関数
+  setTotalQuestions: Dispatch<SetStateAction<number>>;
+  setScore: Dispatch<SetStateAction<number>>;
 };
 
 // useQuizをUseQuiz型の関数として実装
@@ -101,5 +103,7 @@ export const useQuiz2: UseQuiz = () => {
     totalQuestions,
     checkAnswer,
     nextQuestion,
+    setScore,
+    setTotalQuestions,
   };
 };
