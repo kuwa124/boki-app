@@ -1,11 +1,11 @@
 import { FinalScore } from '@/components/FinalScore';
 import { executionLimitCountAtom } from '@/store/ExecutionMode';
-import { Children, SetStateAction, useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 type GameEndHandlerProps = {
   totalQuestions: number;
-  result: boolean | null;
+  result: boolean | undefined;
   setTotalQuestions: (value: SetStateAction<number>) => void;
   setScore: (value: SetStateAction<number>) => void;
   score: number;
@@ -18,6 +18,7 @@ export const GameEndHandler = ({
   setTotalQuestions,
   setScore,
   score,
+  children,
 }: GameEndHandlerProps) => {
   // 実行制限回数の状態を管理
   const [executionLimitCount, setExecutionLimitCount] = useRecoilState(
@@ -29,7 +30,7 @@ export const GameEndHandler = ({
 
   // 総問題数が変更されたときの処理
   useEffect(() => {
-    if (totalQuestions === executionLimitCount && result === null) {
+    if (totalQuestions === executionLimitCount && result === undefined) {
       handleGameEnd();
     }
   }, [totalQuestions, result]);
@@ -57,5 +58,5 @@ export const GameEndHandler = ({
     );
   }
 
-  return <>{Children}</>;
+  return <>{children}</>;
 };

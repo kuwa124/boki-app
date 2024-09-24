@@ -22,7 +22,7 @@ export default function Quiz1() {
   } = useQuiz();
 
   // 問題がロードされていない場合のローディング表示
-  if (question === null) {
+  if (question === undefined) {
     return <Loading />;
   }
 
@@ -40,12 +40,12 @@ export default function Quiz1() {
             <PositionQuestionDisplay question={question} />
             <AnswerButtons
               onAnswer={checkAnswer}
-              isAnswered={answer !== null}
+              isAnswered={answer !== undefined}
             />
             <PositionResultDisplay
               result={result}
-              question={null}
-              position={null}
+              question={undefined}
+              position={undefined}
             />
           </div>
         </div>
