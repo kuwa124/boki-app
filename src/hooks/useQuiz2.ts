@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 // UseQuiz型を関数型として定義
 type UseQuiz = () => {
-  question: Elements | null; // 現在の問題
+  question: Elements | undefined; // 現在の問題
   answer: Elements | undefined; // ユーザーの回答
   result: boolean | undefined; // 回答結果
   score: number; // 現在のスコア
@@ -19,7 +19,7 @@ type UseQuiz = () => {
 // useQuizをUseQuiz型の関数として実装
 export const useQuiz2: UseQuiz = () => {
   // 問題の状態を管理
-  const [question, setQuestion] = useState<Elements | null>(null);
+  const [question, setQuestion] = useState<Elements | undefined>(undefined);
   // 回答の状態を管理
   const [answer, setAnswer] = useState<Elements | undefined>(undefined);
   // 結果の状態を管理

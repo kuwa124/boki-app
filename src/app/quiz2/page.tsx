@@ -30,7 +30,7 @@ export default function Quiz2() {
   };
 
   // 問題がロードされていない場合のローディング表示
-  if (question === null) {
+  if (question === undefined) {
     return <Loading />;
   }
 

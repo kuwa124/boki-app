@@ -13,7 +13,7 @@ export default function Quiz5() {
     useQuiz5();
 
   // 問題がロードされていない場合のローディング表示
-  if (question === null) {
+  if (question === undefined) {
     return <Loading />;
   }
 
