@@ -1,28 +1,33 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+// 必要なReactフックと型をインポート
 import { Position } from '@/constants/type';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
+// クイズフックの戻り値の型定義
 export type UseQuizBase<QuestionType, CategoryType> = () => {
-  question: QuestionType | undefined;
-  answer: Position | undefined;
-  result: boolean | undefined;
-  score: number;
-  totalQuestions: number;
-  checkAnswer: (selectedPosition: Position) => void;
-  nextQuestion: () => void;
-  setTotalQuestions: Dispatch<SetStateAction<number>>;
-  setScore: Dispatch<SetStateAction<number>>;
+  question: QuestionType | undefined; // 現在の問題
+  answer: Position | undefined; // ユーザーの回答
+  result: boolean | undefined; // 回答の結果
+  score: number; // 現在のスコア
+  totalQuestions: number; // 総問題数
+  checkAnswer: (selectedPosition: Position) => void; // 回答をチェックする関数
+  nextQuestion: () => void; // 次の問題に進む関数
+  setTotalQuestions: Dispatch<SetStateAction<number>>; // 総問題数を設定する関数
+  setScore: Dispatch<SetStateAction<number>>; // スコアを設定する関数
 };
 
+// クイズフックを作成する関数
 export function createUseQuizBase<QuestionType, CategoryType>(
-  generateQuestion: (categories: CategoryType[]) => QuestionType,
-  initialCategories: CategoryType[],
-  getCorrectAnswer: (question: QuestionType) => Position,
+  generateQuestion: (categories: CategoryType[]) => QuestionType, // 問題生成関数
+  initialCategories: CategoryType[], // 初期カテゴリーリスト
+  getCorrectAnswer: (question: QuestionType) => Position, // 正解を取得する関数
   checkCorrectAnswer: (
+    // 回答をチェックする関数
     question: QuestionType,
     selectedPosition: Position
   ) => boolean
 ): UseQuizBase<QuestionType, CategoryType> {
   return () => {
+    // 状態変数の定義
     const [question, setQuestion] = useState<QuestionType | undefined>(
       undefined
     );
@@ -34,19 +39,22 @@ export function createUseQuizBase<QuestionType, CategoryType>(
       CategoryType[]
     >([...initialCategories]);
 
+    // 初期問題の設定
     useEffect(() => {
       setQuestion(generateQuestion(availableCategories));
     }, []);
 
+    // 次の問題に進む関数
     const nextQuestion = () => {
       if (availableCategories.length === 1) {
-        setAvailableCategories([...initialCategories]);
+        setAvailableCategories([...initialCategories]); // カテゴリーをリセット
       }
       setQuestion(generateQuestion(availableCategories));
       setAnswer(undefined);
       setResult(undefined);
     };
 
+    // 回答をチェックする関数
     const checkAnswer = (selectedPosition: Position) => {
       if (!question) return;
 
@@ -57,11 +65,13 @@ export function createUseQuizBase<QuestionType, CategoryType>(
       if (isCorrect) setScore(score + 1);
       setTotalQuestions(totalQuestions + 1);
 
+      // 使用済みカテゴリーを除外
       setAvailableCategories((prev) =>
         prev.filter((cat) => cat !== (question as any).category)
       );
     };
 
+    // 結果表示後、自動的に次の問題に進むタイマー
     useEffect(() => {
       const timer = setTimeout(() => {
         if (result !== undefined) {
@@ -71,6 +81,7 @@ export function createUseQuizBase<QuestionType, CategoryType>(
       return () => clearTimeout(timer);
     }, [result]);
 
+    // フックの戻り値
     return {
       question,
       answer,
