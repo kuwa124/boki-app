@@ -7,13 +7,11 @@ import { usePage } from '@/hooks/usePage';
 import React from 'react';
 
 type IncorrectAnswerMessageProps = {
-  result: boolean | undefined;
   question: Elements;
   position: 'home' | 'away' | undefined;
 };
 
 export const IncorrectAnswerMessage: React.FC<IncorrectAnswerMessageProps> = ({
-  // result,
   question,
   position,
 }) => {
@@ -30,11 +28,6 @@ export const IncorrectAnswerMessage: React.FC<IncorrectAnswerMessageProps> = ({
   if (question?.message === undefined) {
     return undefined; //何もしない（早期リターン）
   }
-
-  // 不正解の時のみ表示
-  // if (result === true) {
-  //   return undefined; //何もしない（早期リターン）
-  // }
 
   return (
     <div>
