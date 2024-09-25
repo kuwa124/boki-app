@@ -71,16 +71,6 @@ export function createUseQuizBase<QuestionType, CategoryType>(
       );
     };
 
-    // 結果表示後、自動的に次の問題に進むタイマー
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        if (result !== undefined) {
-          nextQuestion();
-        }
-      }, 3000);
-      return () => clearTimeout(timer);
-    }, [result]);
-
     // フックの戻り値
     return {
       question,

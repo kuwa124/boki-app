@@ -19,6 +19,7 @@ export default function Quiz5() {
     checkAnswer,
     setScore,
     setTotalQuestions,
+    nextQuestion,
   } = useQuiz5();
 
   // 問題がロードされていない場合のローディング表示
@@ -52,6 +53,7 @@ export default function Quiz5() {
               result={result}
               question={question.category}
               position={question.position}
+              onClick={nextQuestion}
             />
           </div>
         </div>

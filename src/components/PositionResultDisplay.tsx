@@ -10,12 +10,14 @@ type PositionResultDisplayProps = {
   result: boolean | undefined;
   question: Elements | undefined;
   position: 'home' | 'away' | undefined;
+  onClick: () => void;
 };
 
 export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
   result,
   question,
   position,
+  onClick,
 }) => {
   if (result === undefined) {
     return undefined; //何もしない（早期リターン）
@@ -26,6 +28,8 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
   const colorDivClass = result ? 'bg-green-100' : 'bg-red-100';
   const colorIconClass = result ? 'text-green-500' : 'text-red-500';
   const colorPClass = result ? 'text-green-700' : 'text-red-700';
+  const colorBtnClass = result ? 'bg-green-500' : 'bg-red-500';
+  const colorHoverBtnClass = result ? 'bg-green-700' : 'bg-red-700';
 
   return (
     <div
@@ -46,6 +50,12 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
               position={position}
             />
           )}
+          <button
+            className={`mt-2 px-4 py-2 ${colorBtnClass} font-semibold tracking-wider text-white rounded hover:${colorHoverBtnClass} shadow-lg transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50`}
+            onClick={onClick}
+          >
+            次の問題へ
+          </button>
         </div>
       </div>
     </div>

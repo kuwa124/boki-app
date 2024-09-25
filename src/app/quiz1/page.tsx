@@ -19,6 +19,7 @@ export default function Quiz1() {
     checkAnswer,
     setTotalQuestions,
     setScore,
+    nextQuestion,
   } = useQuiz();
 
   // 問題がロードされていない場合のローディング表示
@@ -28,7 +29,13 @@ export default function Quiz1() {
 
   return (
     //  GameEndHandlerでゲーム終了処理をラップ
-    <GameEndHandler result={result} score={score} setScore={setScore} setTotalQuestions={setTotalQuestions} totalQuestions={totalQuestions}>
+    <GameEndHandler
+      result={result}
+      score={score}
+      setScore={setScore}
+      setTotalQuestions={setTotalQuestions}
+      totalQuestions={totalQuestions}
+    >
       <main className='text-gray-600 min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>
         <Navigation />
         <div className='flex items-center justify-center'>
@@ -46,6 +53,7 @@ export default function Quiz1() {
               result={result}
               question={undefined}
               position={undefined}
+              onClick={nextQuestion}
             />
           </div>
         </div>
