@@ -5,13 +5,48 @@ export type AccountingCategory = '資産' | '負債' | '純資産' | '費用' | 
 // AccountingCategory の各値をキーとして持ち、その値は home と away プロパティを持つオブジェクト
 export const categoryPositions: Record<
   AccountingCategory,
-  { home: Position; away: Position }
+  { home: Position; away: Position; message: string }
 > = {
-  資産: { home: '借方', away: '貸方' },
-  負債: { home: '貸方', away: '借方' },
-  純資産: { home: '貸方', away: '借方' },
-  費用: { home: '借方', away: '貸方' },
-  収益: { home: '貸方', away: '借方' },
+  資産: {
+    home: '借方',
+    away: '貸方',
+    message: `
+    増えたら、借方、
+    減ったら、貸方
+    `,
+  },
+  負債: {
+    home: '貸方',
+    away: '借方',
+    message: `
+    増えたら、貸方、
+    減ったら、借方
+    `,
+  },
+  純資産: {
+    home: '貸方',
+    away: '借方',
+    message: `
+    増えたら、貸方、
+    減ったら、借方
+    `,
+  },
+  費用: {
+    home: '借方',
+    away: '貸方',
+    message: `
+    増えたら、借方、
+    減ったら、貸方
+    `,
+  },
+  収益: {
+    home: '貸方',
+    away: '借方',
+    message: `
+    増えたら、貸方、
+    減ったら、借方
+    `,
+  },
 };
 
 export type AccountingCategoryQuestion = {
@@ -30,7 +65,7 @@ export const categories: AccountingCategory[] = [
 export const generateQuestion = (
   availableCategories: AccountingCategory[]
 ): AccountingCategoryQuestion => {
-  const randomIndex = Math.floor(Math.random() * availableCategories.length)
+  const randomIndex = Math.floor(Math.random() * availableCategories.length);
   const category = availableCategories[randomIndex];
   const position = Math.random() < 0.5 ? 'home' : 'away';
   return { category, position };
