@@ -7,7 +7,7 @@ import {
   generateQuestion,
 } from '@/app/quiz1/constants/AccountingCategoryTypes';
 import { Position } from '@/constants/type';
-import { createUseQuizBase } from './useQuizBase';
+import { createUseQuizBase } from './useAccounting';
 
 // 問題の正解の位置を取得する関数
 const getCorrectAnswer = (question: AccountingCategoryQuestion): Position => {
@@ -27,9 +27,11 @@ const checkCorrectAnswer = (
 };
 
 export const useQuiz = createUseQuizBase<
-AccountingCategoryQuestion,
-  AccountingCategory >
-    (generateQuestion, // 問題を生成する関数
-    categories, // クイズで使用するカテゴリのリスト
-    getCorrectAnswer, // 正解を取得する関数
-    checkCorrectAnswer); // 回答をチェックする関数
+  AccountingCategoryQuestion,
+  AccountingCategory
+>(
+  generateQuestion, // 問題を生成する関数
+  categories, // クイズで使用するカテゴリのリスト
+  getCorrectAnswer, // 正解を取得する関数
+  checkCorrectAnswer
+); // 回答をチェックする関数

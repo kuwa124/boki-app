@@ -7,7 +7,6 @@ import { Loading } from '@/components/Loading';
 import { Navigation } from '@/components/Navigation';
 import { PositionResultDisplay } from '@/components/PositionResultDisplay';
 import { ScoreDisplay } from '@/components/ScoreDisplay';
-import { Elements } from '@/constants/type';
 import { useQuiz2 } from '@/hooks/useQuiz2';
 
 export default function Quiz2() {
@@ -17,26 +16,11 @@ export default function Quiz2() {
     result,
     score,
     totalQuestions,
-    checkAnswer,
+    handleAnswer,
     setScore,
     setTotalQuestions,
+    nextQuestion,
   } = useQuiz2();
-
-  // 回答ボタンがクリックされたときの処理
-  const handleAnswer = (position: string) => {
-    // questionが存在する場合のみ処理を実行
-    if (question) {
-      // 選択された位置（費用または収益）に基づいて、PlElements型のオブジェクトを作成
-      const selectedPosition: Elements = {
-        id: question.id,
-        text: question.text,
-        answer: position,
-        message: question.message,
-      };
-      // checkAnswer関数を呼び出して回答をチェック
-      checkAnswer(selectedPosition);
-    }
-  };
 
   // 問題がロードされていない場合のローディング表示
   if (question === undefined) {
@@ -69,6 +53,7 @@ export default function Quiz2() {
               result={result}
               question={question}
               position={undefined}
+              onClick={nextQuestion}
             />
           </div>
         </div>

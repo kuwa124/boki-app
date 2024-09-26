@@ -9,7 +9,7 @@ import {
   QuizQuestion5,
 } from '@/app/quiz5/constants/AccountItemTypes';
 import { Elements, Position } from '@/constants/type';
-import { createUseQuizBase } from './useQuizBase';
+import { createUseQuizBase } from './useAccounting';
 
 // 問題の正解の位置を取得する関数
 const getCorrectAnswer = (question: QuizQuestion5): Position => {

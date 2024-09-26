@@ -20,6 +20,7 @@ export default function Quiz4() {
     checkAnswer,
     setScore,
     setTotalQuestions,
+    nextQuestion,
   } = useQuiz4();
 
   // 回答ボタンがクリックされたときの処理
@@ -69,6 +70,7 @@ export default function Quiz4() {
               result={result}
               question={question}
               position={undefined}
+              onClick={nextQuestion}
             />
           </div>
         </div>
