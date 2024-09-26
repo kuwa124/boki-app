@@ -1,4 +1,3 @@
-
 import { Elements } from '@/constants/type';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
@@ -28,12 +27,13 @@ export const createUseQuizAdvanced = (
       ...elements,
     ]);
 
-  // 初回レンダリング時に質問を生成
+    // 初回レンダリング時に質問を生成
     useEffect(() => {
       setQuestion(generateQuestion(availableCategories));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-  // 次の質問を設定する関数
+    // 次の質問を設定する関数
     const nextQuestion = () => {
       if (availableCategories.length === 1) {
         setAvailableCategories([...elements]);
@@ -43,34 +43,34 @@ export const createUseQuizAdvanced = (
       setResult(undefined);
     };
 
-  // 回答をチェックする関数
+    // 回答をチェックする関数
     const checkAnswer = (selectedPosition: Elements) => {
-    // 質問が存在しない場合は処理を終了
+      // 質問が存在しない場合は処理を終了
       if (!question) return;
 
-    // 正解の回答を取得
+      // 正解の回答を取得
       const correctAnswer = question.answer;
 
-    // 選択された回答が正解かどうかを判定
+      // 選択された回答が正解かどうかを判定
       const isCorrect = selectedPosition.answer === correctAnswer;
 
-    // 選択された回答をセット
+      // 選択された回答をセット
       setAnswer(selectedPosition);
 
-    // 正解・不正解の結果をセット
+      // 正解・不正解の結果をセット
       setResult(isCorrect);
 
-    // 正解の場合、スコアを1増やす
-    if (isCorrect) setScore((prevScore) => prevScore + 1);
+      // 正解の場合、スコアを1増やす
+      if (isCorrect) setScore((prevScore) => prevScore + 1);
 
-    // 総質問数を1増やす
-    setTotalQuestions((prevTotal) => prevTotal + 1);
+      // 総質問数を1増やす
+      setTotalQuestions((prevTotal) => prevTotal + 1);
 
-    // 回答済みの質問を利用可能なカテゴリーから除外
+      // 回答済みの質問を利用可能なカテゴリーから除外
       setAvailableCategories((prev) => prev.filter((cat) => cat !== question));
     };
 
-  // ユーザーの回答を処理する関数
+    // ユーザーの回答を処理する関数
     const handleAnswer = (position: string) => {
       if (question) {
         const selectedPosition: Elements = {

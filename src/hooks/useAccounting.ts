@@ -42,6 +42,7 @@ export function createUseQuizBase<QuestionType, CategoryType>(
     // 初期問題の設定
     useEffect(() => {
       setQuestion(generateQuestion(availableCategories));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // 次の問題に進む関数

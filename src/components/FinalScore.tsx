@@ -1,5 +1,5 @@
 import { Search, Star, ThumbsUp, Trophy, Zap } from 'lucide-react';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 
 type FinalScoreProps = {
@@ -15,45 +15,42 @@ export const FinalScore: React.FC<FinalScoreProps> = ({
 }) => {
   const percentage: number = (score / totalQuestions) * 100;
 
-  const getGrade = useMemo(
-    () => (percent: number) => {
-      if (percent === 100)
-        return {
-          grade: 'S',
-          icon: Trophy,
-          color: '#FFD700',
-          message: '素晴らしい！完璧です！',
-        };
-      if (percent >= 85)
-        return {
-          grade: 'A',
-          icon: Star,
-          color: '#4CAF50',
-          message: '素晴らしい成績です！',
-        };
-      if (percent >= 70)
-        return {
-          grade: 'B',
-          icon: Zap,
-          color: '#2196F3',
-          message: '良い成績です！',
-        };
-      if (percent >= 55)
-        return {
-          grade: 'C',
-          icon: ThumbsUp,
-          color: '#FFC107',
-          message: 'よくがんばりました！',
-        };
+  const getGrade = (percent: number) => {
+    if (percent === 100)
       return {
-        grade: 'D',
-        icon: Search,
-        color: '#FF5722',
-        message: 'それぞれの位置関係を確認して！',
+        grade: 'S',
+        icon: Trophy,
+        color: '#FFD700',
+        message: '素晴らしい！完璧です！',
       };
-    },
-    [percentage]
-  );
+    if (percent >= 85)
+      return {
+        grade: 'A',
+        icon: Star,
+        color: '#4CAF50',
+        message: '素晴らしい成績です！',
+      };
+    if (percent >= 70)
+      return {
+        grade: 'B',
+        icon: Zap,
+        color: '#2196F3',
+        message: '良い成績です！',
+      };
+    if (percent >= 55)
+      return {
+        grade: 'C',
+        icon: ThumbsUp,
+        color: '#FFC107',
+        message: 'よくがんばりました！',
+      };
+    return {
+      grade: 'D',
+      icon: Search,
+      color: '#FF5722',
+      message: 'それぞれの位置関係を確認して！',
+    };
+  };
 
   const { grade, icon: Icon, color, message } = getGrade(percentage);
   return (

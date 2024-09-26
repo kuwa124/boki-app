@@ -33,6 +33,7 @@ export const GameEndHandler = ({
     if (totalQuestions === executionLimitCount && result === undefined) {
       handleGameEnd();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalQuestions, result]);
 
   // ゲーム終了時の処理
