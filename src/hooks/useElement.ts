@@ -1,5 +1,5 @@
-import { Elements } from "@/constants/type";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Elements } from '@/constants/type';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 type UseElement = () => {
   question: Elements | undefined;
@@ -62,17 +62,6 @@ export const useElement = (
         checkAnswer(selectedPosition);
       }
     };
-
-    useEffect(() => {
-      if (result !== undefined) {
-        const messageString = question?.message as string;
-        const delay = messageString.length < 15 ? 3000 : 6000;
-        const timer = setTimeout(() => {
-          nextQuestion();
-        }, delay);
-        return () => clearTimeout(timer);
-      }
-    }, [result]);
 
     return {
       question,
