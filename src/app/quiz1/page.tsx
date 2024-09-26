@@ -51,7 +51,7 @@ export default function Quiz1() {
             />
             <PositionResultDisplay
               result={result}
-              question={undefined}
+              question={question}
               position={undefined}
               onClick={nextQuestion}
             />

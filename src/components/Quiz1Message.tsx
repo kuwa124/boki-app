@@ -16,9 +16,9 @@ export const Quiz1Message = ({ question }: Quiz1MessageProps) => {
   if (currentPage !== 1) return; //何もしない（早期リターン）
 
   return (
-    <div>
+    <div className='my-2'>
       <p className='text-xs sm:text-base font-semibold text-left lg:text-center whitespace-pre-line'>
-        解説：{message}
+        解説：{question.category}は{message}
       </p>
     </div>
   );

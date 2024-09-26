@@ -2,13 +2,15 @@
 
 import React from 'react';
 
+import { AccountingCategoryQuestion } from '@/app/quiz1/constants/AccountingCategoryTypes';
 import { IncorrectAnswerMessage } from '@/components/IncorrectAnswerMessage';
+import { Quiz1Message } from '@/components/Quiz1Message';
 import { Elements } from '@/constants/type';
 import { CheckCircle, XCircle } from 'lucide-react';
 
 type PositionResultDisplayProps = {
   result: boolean | undefined;
-  question: Elements | undefined;
+  question: Elements | AccountingCategoryQuestion | undefined;
   position: 'home' | 'away' | undefined;
   onClick: () => void;
 };
@@ -43,12 +45,11 @@ export const PositionResultDisplay: React.FC<PositionResultDisplayProps> = ({
             <Icon className={`${colorIconClass} mr-2 lg:size-20`} />
             <p className={`${colorPClass} lg:ml-4 font-bold`}>{message}</p>
           </div>
-          {question && (
-            <IncorrectAnswerMessage
-              result={result}
-              question={question}
-              position={position}
-            />
+          {question && 'id' in question && (
+            <IncorrectAnswerMessage question={question} position={position} />
+          )}
+          {question && 'category' in question && (
+            <Quiz1Message question={question} />
           )}
           <button
             className={`mt-2 px-4 py-2 ${colorBtnClass} font-semibold tracking-wider text-white rounded hover:${colorHoverBtnClass} shadow-lg transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50`}
