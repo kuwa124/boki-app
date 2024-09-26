@@ -4,4 +4,4 @@ import {
 } from '@/app/quiz4/constants/combinedElements';
 import { useElement } from '@/hooks/useElement';
 
-export const useQuiz4 = useElement(combinedElements, generateQuestion4);
+export const useQuiz4 = () => useElement(combinedElements, generateQuestion4);
