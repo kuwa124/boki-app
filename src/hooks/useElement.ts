@@ -1,7 +1,7 @@
 import { Elements } from '@/constants/type';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-export type UseQuiz = () => {
+export type UseQuiz = {
   question: Elements | undefined;
   answer: Elements | undefined;
   result: boolean | undefined;
@@ -16,8 +16,8 @@ export type UseQuiz = () => {
 export const createUseQuizAdvanced = (
   elements: Elements[],
   generateQuestion: (availableCategories: Elements[]) => Elements | undefined
-): UseQuiz => {
-  return () => {
+):  () => UseQuiz => {
+return () => {  
     const [question, setQuestion] = useState<Elements | undefined>(undefined);
     const [answer, setAnswer] = useState<Elements | undefined>(undefined);
     const [result, setResult] = useState<boolean | undefined>(undefined);

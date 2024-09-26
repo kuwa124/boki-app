@@ -2,6 +2,9 @@ import {
   generateQuestion2,
   plElements,
 } from '@/app/quiz2/constants/plElements';
-import { createUseQuizAdvanced } from '@/hooks/useElement';
+import { createUseQuizAdvanced, UseQuiz } from '@/hooks/useElement';
 
-export const useQuiz2 = () => createUseQuizAdvanced(plElements, generateQuestion2);
+export const useQuiz2: () => UseQuiz = createUseQuizAdvanced(
+  plElements,
+  generateQuestion2
+);
